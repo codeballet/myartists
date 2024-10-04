@@ -1,7 +1,15 @@
-export function App() {
+import { ReactElement } from "react";
+import { Outlet } from "react-router-dom";
+import { Footer, Header } from ".";
+
+export function App(): ReactElement {
     return (
         <>
-            <p>Hi there</p>
+            <Header />
+            <main>
+                <Outlet />
+            </main>
+            <Footer />
         </>
     );
 }
