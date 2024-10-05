@@ -8,10 +8,10 @@ export function Header(): ReactElement {
                 <NavLink to="/">My Artists</NavLink>
             </div>
             <div className="header-nav-links">
-                <NavLink to="/">Edit</NavLink>
-                <NavLink to="/">Mine</NavLink>
-                <NavLink to="/">Find</NavLink>
-                <NavLink to="/">Login</NavLink>
+                <NavLink to="edit">Edit</NavLink>
+                <NavLink to="mine">Mine</NavLink>
+                <NavLink to="find">Find</NavLink>
+                <NavLink to="login">Login</NavLink>
             </div>
         </header>
     );

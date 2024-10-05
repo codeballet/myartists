@@ -5,6 +5,11 @@ footer {
     background-color: var(--color-grey-dark);
     padding: 1rem 2rem;
 
+    .active {
+        color: var(--color-nav-active);
+    }
+
+    a,
     p {
         font-size: 1.5rem;
         color: var(--color-grey-light);

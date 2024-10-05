@@ -2,9 +2,8 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
-    padding: 2rem;
     background-color: var(--color-grey-dark);
+    padding: 2rem;
 
     .header-nav-title,
     .header-nav-links {
@@ -19,9 +18,27 @@ header {
 
     .header-nav-title {
         font-size: 3rem;
+
+        .active {
+            color: var(--color-nav-active);
+        }
     }
 
     .header-nav-links {
-        font-size: 2.5rem;
+        padding-top: 0.4rem;
+
+        a {
+            font-size: 2.5rem;
+            transition: 0.2s;
+        }
+
+        a:hover {
+            padding-top: 0.1rem;
+        }
+
+        .active {
+            color: var(--color-nav-active);
+            padding-top: 0.1rem;
+        }
     }
 }

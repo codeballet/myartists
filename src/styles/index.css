@@ -1,6 +1,13 @@
+@import url("./AboutPage.css");
 @import url("./App.css");
+@import url("./EditPage.css");
+@import url("./FindPage.css");
 @import url("./Footer.css");
 @import url("./Header.css");
+@import url("./LoginPage.css");
+@import url("./HomePage.css");
+@import url("./MinePage.css");
+@import url("./NotFoundPage.css");
 
 @import url("https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap");
 /* <weight>: Use a value from 400 to 800 */
@@ -18,8 +25,13 @@
     --color-grey-light: #e8e8e8;
     --color-grey-medium: #4a4a4a;
     --color-grey-dark: #313131;
+    --color-nav-active: #f7f7bf;
 }
 
 a {
     text-decoration: none;
+}
+
+body {
+    background-color: var(--color-grey-medium);
 }
