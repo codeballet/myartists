@@ -1,22 +1,25 @@
 export interface IArtist {
-    id: string;
     family_name: string;
     first_name: string;
-    work_id: string[];
+    id: string;
+    images: string[];
+    work_ids: string[];
 }
 
 export interface IUser {
-    favorite_artist: string[];
-    favorite_work: string[];
+    artist: boolean;
+    favorite_artists: string[];
+    favorite_works: string[];
     id: string;
     logged_in: boolean;
 }
 
 export interface IWork {
-    date: string[];
+    dates: string[];
     description: string;
     id: string;
-    place: string[];
-    time: string[];
+    images: string[];
+    places: string[];
+    times: string[];
     title: string;
 }
