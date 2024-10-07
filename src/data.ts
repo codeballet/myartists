@@ -23,7 +23,9 @@ export const user: IUser = {
     id: "",
     favorite_artists: [],
     favorite_works: [],
-    logged_in: true,
+    logged_in: false,
+    password: "",
+    username: "",
 };
 
 // name structure for id: artist_work, nnn_nnn

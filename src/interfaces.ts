@@ -12,6 +12,8 @@ export interface IUser {
     favorite_works: string[];
     id: string;
     logged_in: boolean;
+    password: string;
+    username: string;
 }
 
 export interface IWork {
