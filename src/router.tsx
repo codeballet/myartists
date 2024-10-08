@@ -18,30 +18,35 @@ export const router = createBrowserRouter([
         element: <App />,
         id: "app",
         loader: dataLoader,
-        errorElement: <ErrorPage />,
         children: [
             {
                 element: <HomePage />,
+                errorElement: <ErrorPage />,
                 index: true,
             },
             {
                 element: <EditPage />,
+                errorElement: <ErrorPage />,
                 path: "edit",
             },
             {
                 element: <MinePage />,
+                errorElement: <ErrorPage />,
                 path: "mine",
             },
             {
                 element: <FindPage />,
+                errorElement: <ErrorPage />,
                 path: "find",
             },
             {
                 element: <LoginPage />,
+                errorElement: <ErrorPage />,
                 path: "login",
             },
             {
                 element: <AboutPage />,
+                errorElement: <ErrorPage />,
                 path: "about",
             },
             {
