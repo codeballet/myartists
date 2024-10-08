@@ -6,10 +6,10 @@ export function ErrorPage(): ReactElement {
     console.log(error);
 
     return (
-        <>
+        <article className="error-page">
             <h1 className="errorMessage">
                 An error occurred while loading the page
             </h1>
-        </>
+        </article>
     );
 }
