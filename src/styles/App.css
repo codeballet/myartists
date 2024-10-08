@@ -1,3 +1,12 @@
 main {
-    min-height: calc(100vh - 11.5rem);
+    min-height: calc(100vh - 11.1rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media screen and (max-width: 950px) {
+    main {
+        min-height: calc(100vh - 10.5rem);
+    }
 }

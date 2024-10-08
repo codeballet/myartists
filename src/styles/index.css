@@ -1,6 +1,5 @@
 @import url("./AboutPage.css");
 @import url("./App.css");
-@import url("./Card.css");
 @import url("./EditPage.css");
 @import url("./FindPage.css");
 @import url("./Footer.css");
@@ -35,4 +34,8 @@ a {
 
 body {
     background-color: var(--color-grey-medium);
+}
+
+ul {
+    list-style: none;
 }

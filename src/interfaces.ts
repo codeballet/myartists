@@ -3,7 +3,11 @@ export interface IArtist {
     first_name: string;
     id: string;
     images: string[];
-    work_ids: string[];
+}
+
+export interface IImageCredits {
+    image: string;
+    credit: string;
 }
 
 export interface IUser {
@@ -24,4 +28,10 @@ export interface IWork {
     places: string[];
     times: string[];
     title: string;
+}
+
+export interface IWorkArtist {
+    id: string;
+    work_id: string;
+    artist_id: string;
 }
