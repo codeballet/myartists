@@ -1,8 +1,7 @@
-import { ReactElement, useState } from "react";
+import { ReactElement } from "react";
 import { IImageCredits, IWork } from "../interfaces";
-import { imageCredits } from "../data";
 
-interface ICardProps {
+interface IHomeCardProps {
     artists: string[];
     imageCredits: IImageCredits[];
     work: IWork;
@@ -12,15 +11,15 @@ export function Card({
     artists,
     imageCredits,
     work,
-}: ICardProps): ReactElement {
+}: IHomeCardProps): ReactElement {
     const image = work.images[Math.floor(Math.random() * work.images.length)];
     const filteredCredit = imageCredits.filter((img) => img.image === image);
     const credit = filteredCredit[0].credit;
 
     return (
-        <section className="card">
+        <section className="home-card">
             <figure className="card-figure">
-                <img src={`src/assets/${work.images[0]}.jpg`} alt="Art Work" />
+                <img src={`src/assets/${image}.jpg`} alt="Art Work" />
                 <figcaption>Photo by {credit}</figcaption>
             </figure>
             <div className="card-text">

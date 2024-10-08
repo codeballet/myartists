@@ -8,8 +8,8 @@ import {
     IWorkArtist,
 } from "../interfaces";
 import { Card } from "../components";
-
-type TData = [IArtist[], IImageCredits[], IUser, IWork[], IWorkArtist[]];
+import { TData } from "../types";
+import { workArtists } from "../utils";
 
 export function HomePage(): ReactElement {
     // Acquire data from loader (simulating a DB)
@@ -25,58 +25,15 @@ export function HomePage(): ReactElement {
         works[Math.floor(Math.random() * works.length)]
     );
 
-    // Capitalise first letter
-    const capitaliseFLetter = (string: string): string => {
-        return string.replace(/^./, string[0].toUpperCase());
-    };
-
     // Set state of a new random work
     const newRandomWork = () => {
         setRandomWork(works[Math.floor(Math.random() * works.length)]);
     };
 
-    // Return names for all relevant artists for a work
-    const workArtists = (workId: string): string[] => {
-        // Find all artists matching the work
-        const filteredWorkArtists: IWorkArtist[] = worksArtists.filter(
-            (item) => item.work_id === workId
-        );
-
-        // Extract all artist ids for the work
-        const artistIds = filteredWorkArtists.map((item) => {
-            for (let artist of artists) {
-                if (artist.id === item.artist_id) {
-                    return item.artist_id;
-                }
-            }
-        });
-
-        // Generate a list of names for the artists
-        const artistNames: string[] = [];
-
-        if (artistIds.length > 0) {
-            for (let id of artistIds) {
-                artists.forEach((artist) => {
-                    if (artist.id === id) {
-                        artistNames.push(
-                            `${capitaliseFLetter(
-                                artist.first_name
-                            )} ${capitaliseFLetter(artist.family_name)}`
-                        );
-                    }
-                });
-            }
-        }
-
-        return artistNames;
-    };
-
-    workArtists("000_000");
-
     return (
         <section className="home-page">
             <Card
-                artists={workArtists(randomWork.id)}
+                artists={workArtists(artists, randomWork.id, worksArtists)}
                 imageCredits={imageCredits}
                 work={randomWork}
             />
