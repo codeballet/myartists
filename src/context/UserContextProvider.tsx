@@ -26,7 +26,7 @@ export const UserContext = createContext<IUserContext>({} as IUserContext);
 export function UserContextProvider({
     children,
 }: IUserContextProviderChildren): ReactElement {
-    const [artist, setArtist] = useState<boolean>(false);
+    const [artist, setArtist] = useState<boolean>(true);
     const [id, setId] = useState<string>("");
     const [favoriteArtists, setFavoriteArtists] = useState<string[]>([]);
     const [favoriteWorks, setFavoriteWorks] = useState<string[]>([]);
