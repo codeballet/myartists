@@ -17,7 +17,7 @@ export function Card({
     const credit = filteredCredit[0].credit;
 
     return (
-        <section className="home-card">
+        <section className="card">
             <figure className="card-figure">
                 <img src={`src/assets/${image}.jpg`} alt="Art Work" />
                 <figcaption>Photo by {credit}</figcaption>

@@ -24,6 +24,9 @@ export function FindPage(): ReactElement {
 
     return (
         <section className="find-page">
+            <div className="forms-container">
+                <h1>Add forms here</h1>
+            </div>
             <div className="cards-container">
                 {works.map((work) => (
                     <Card

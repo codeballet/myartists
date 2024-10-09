@@ -5,7 +5,7 @@
     align-items: center;
     margin-bottom: 1rem;
 
-    .home-card {
+    .card {
         display: flex;
         flex-direction: row;
         gap: 1rem;
@@ -65,7 +65,7 @@
         flex-grow: 1;
         flex-direction: column;
 
-        .home-card {
+        .card {
             flex-direction: column;
             align-items: center;
             max-height: 100%;
@@ -73,7 +73,6 @@
 
             .card-figure {
                 min-width: 70%;
-                /* max-width: 100%; */
             }
 
             .card-text {
