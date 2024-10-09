@@ -74,7 +74,7 @@ export const user: IUser = {
     id: "",
     favorite_artists: [],
     favorite_works: [],
-    logged_in: false,
+    logged_in: true,
     password: "",
     username: "",
 };
