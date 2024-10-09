@@ -22,13 +22,20 @@ export function FindPage(): ReactElement {
     const [works, setWorks] = useState<IWork[]>(data[3]);
     const [worksArtists, setWorksArtists] = useState<IWorkArtist[]>(data[4]);
 
+    // Shuffle content of array
+    const shuffleArray = (arr: IWork[]): IWork[] => {
+        let newArr: IWork[] = [...arr];
+        newArr.sort(() => Math.random() - 0.5);
+        return newArr;
+    };
+
     return (
         <section className="find-page">
             <div className="forms-container">
                 <h1>Add forms here</h1>
             </div>
             <div className="cards-container">
-                {works.map((work) => (
+                {shuffleArray(works).map((work) => (
                     <Card
                         key={work.id}
                         artists={workArtists(artists, work.id, worksArtists)}
