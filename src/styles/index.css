@@ -9,6 +9,7 @@
 @import url("./HomePage.css");
 @import url("./MinePage.css");
 @import url("./NotFoundPage.css");
+@import url("./SearchForm.css");
 
 @import url("https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap");
 /* <weight>: Use a value from 400 to 800 */

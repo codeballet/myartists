@@ -13,7 +13,6 @@ export function FindPage(): ReactElement {
     const [artists, setArtists] = useState<IArtist[]>(data[0]);
     const [foundWorks, setFoundWorks] = useState<IWork[]>(data[2]);
     const [imageCredits, setImageCredits] = useState<IImageCredits[]>(data[1]);
-    const [searchTerm, setSearchTerm] = useState<string>("");
     const [works, setWorks] = useState<IWork[]>(data[2]);
     const [worksArtists, setWorksArtists] = useState<IWorkArtist[]>(data[3]);
 
@@ -28,12 +27,10 @@ export function FindPage(): ReactElement {
         <section className="find-page">
             <div className="forms-container">
                 <SearchForm
-                    foundWorks={foundWorks}
+                    artists={artists}
                     setFoundWorks={setFoundWorks}
-                    searchTerm={searchTerm}
-                    setSearchTerm={setSearchTerm}
                     works={works}
-                    setWorks={setWorks}
+                    worksArtists={worksArtists}
                 />
             </div>
             <div className="cards-container">
