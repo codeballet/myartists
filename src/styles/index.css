@@ -26,7 +26,7 @@
     --color-grey-light: #e8e8e8;
     --color-grey-medium: #4a4a4a;
     --color-grey-dark: #313131;
-    --color-nav-active: #f7f7bf;
+    --color-yellow-faint: #f7f7bf;
 }
 
 a {
@@ -35,6 +35,23 @@ a {
 
 body {
     background-color: var(--color-grey-medium);
+}
+
+button {
+    font-size: 1.4rem;
+    /* font-weight: 500; */
+    padding: 0.7rem 1.7rem;
+    background-color: var(--color-grey-dark);
+    color: var(--color-grey-light);
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    font-weight: 600;
+    color: var(--color-yellow-faint);
 }
 
 ul {

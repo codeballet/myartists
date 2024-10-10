@@ -30,7 +30,7 @@ export function UserContextProvider({
     const [id, setId] = useState<string>("");
     const [favoriteArtists, setFavoriteArtists] = useState<string[]>([]);
     const [favoriteWorks, setFavoriteWorks] = useState<string[]>([]);
-    const [loggedIn, setLoggedIn] = useState<boolean>(true);
+    const [loggedIn, setLoggedIn] = useState<boolean>(false);
     const [password, setPassword] = useState<string>("");
     const [username, setUsername] = useState<string>("");
 

@@ -20,7 +20,7 @@ header {
         font-size: 2.7rem;
 
         .active {
-            color: var(--color-nav-active);
+            color: var(--color-yellow-faint);
         }
     }
 
@@ -37,7 +37,7 @@ header {
         }
 
         .active {
-            color: var(--color-nav-active);
+            color: var(--color-yellow-faint);
             padding-top: 0.1rem;
         }
     }

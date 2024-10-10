@@ -6,7 +6,7 @@ footer {
     padding: 1rem 2rem;
 
     .active {
-        color: var(--color-nav-active);
+        color: var(--color-yellow-faint);
     }
 
     a,
