@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 interface ICardProps {
     artists: string[];
     imageCredits: IImageCredits[];
-    newRandomWork: () => void;
+    newRandomWork?: () => void;
     work: IWork;
 }
 
