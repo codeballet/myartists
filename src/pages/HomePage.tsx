@@ -28,6 +28,7 @@ export function HomePage(): ReactElement {
             <Card
                 artists={workArtists(artists, randomWork.id, worksArtists)}
                 imageCredits={imageCredits}
+                newRandomWork={newRandomWork}
                 work={randomWork}
             />
         </section>

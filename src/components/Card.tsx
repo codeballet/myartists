@@ -2,19 +2,23 @@ import { ReactElement, useContext } from "react";
 import { IImageCredits, IWork } from "../interfaces";
 import { FavoriteIcon } from ".";
 import { UserContext } from "../context/UserContextProvider";
+import { useLocation } from "react-router-dom";
 
-interface IHomeCardProps {
+interface ICardProps {
     artists: string[];
     imageCredits: IImageCredits[];
+    newRandomWork: () => void;
     work: IWork;
 }
 
 export function Card({
     artists,
     imageCredits,
+    newRandomWork,
     work,
-}: IHomeCardProps): ReactElement {
+}: ICardProps): ReactElement {
     const { loggedIn } = useContext(UserContext);
+    const location = useLocation();
 
     const image = work.images[Math.floor(Math.random() * work.images.length)];
     const filteredCredit = imageCredits.filter((img) => img.image_id === image);
@@ -34,9 +38,14 @@ export function Card({
                 </ul>
                 <div className="card-work">
                     <p>{work.title}</p>
+                    {loggedIn && <FavoriteIcon workId={work.id} />}
                 </div>
+                {location.pathname === "/" ? (
+                    <button className="card-refresh" onClick={newRandomWork}>
+                        Show another
+                    </button>
+                ) : null}
             </div>
-            {loggedIn && <FavoriteIcon workId={work.id} />}
         </section>
     );
 }

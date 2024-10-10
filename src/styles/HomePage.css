@@ -53,18 +53,30 @@
                 font-size: 2rem;
             }
 
-            .card-work {
-                font-size: 1.6rem;
+            .card-refresh {
+                margin-top: 1rem;
+                font-size: 1.2rem;
             }
-        }
 
-        .favorite {
-            font-variation-settings: "FILL" 1;
-        }
+            .card-work {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 1.5rem;
+                font-size: 1.6rem;
 
-        .favorite-icon {
-            align-self: flex-end;
-            cursor: pointer;
+                .favorite {
+                    font-variation-settings: "FILL" 1;
+                }
+
+                .favorite-icon {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    cursor: pointer;
+                }
+            }
         }
     }
 }

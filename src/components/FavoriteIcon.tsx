@@ -8,15 +8,22 @@ interface IFavoriteIconProps {
 export function FavoriteIcon({ workId }: IFavoriteIconProps): ReactElement {
     const { favoriteWorks, setFavoriteWorks } = useContext(UserContext);
 
-    const addFavorite = () => {
+    const setFavorite = () => {
         if (!favoriteWorks.includes(workId)) {
+            // Add work to favorites list
             const newFavorites = [workId, ...favoriteWorks];
+            setFavoriteWorks(newFavorites);
+        } else if (favoriteWorks.includes(workId)) {
+            // Remove work from favoriteslist
+            const newFavorites = favoriteWorks.filter(
+                (work) => work !== workId
+            );
             setFavoriteWorks(newFavorites);
         }
     };
 
     return (
-        <i onClick={addFavorite} className="favorite-icon">
+        <i onClick={setFavorite} className="favorite-icon">
             <span
                 className={
                     favoriteWorks.includes(workId)
