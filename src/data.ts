@@ -1,10 +1,4 @@
-import {
-    IArtist,
-    IImageCredits,
-    IUser,
-    IWork,
-    IWorkArtist,
-} from "./interfaces";
+import { IArtist, IImageCredits, IWork, IWorkArtist } from "./interfaces";
 
 // name structure for images: artist_image, nnn_nn
 export const artists: IArtist[] = [
@@ -90,16 +84,6 @@ export const imageCredits: IImageCredits[] = [
         credit: "AdeY",
     },
 ];
-
-export const user: IUser = {
-    artist: false,
-    id: "",
-    favorite_artists: [],
-    favorite_works: [],
-    logged_in: true,
-    password: "",
-    username: "",
-};
 
 // name structure for id: artist_work, nnn_nnn
 // name structure for images: artist_work_image, nnn_nnn_nn

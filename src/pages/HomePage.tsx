@@ -1,12 +1,6 @@
 import { ReactElement, useState } from "react";
 import { useRouteLoaderData } from "react-router-dom";
-import {
-    IArtist,
-    IImageCredits,
-    IUser,
-    IWork,
-    IWorkArtist,
-} from "../interfaces";
+import { IArtist, IImageCredits, IWork, IWorkArtist } from "../interfaces";
 import { Card } from "../components";
 import { TData } from "../types";
 import { workArtists } from "../utils";
@@ -18,9 +12,8 @@ export function HomePage(): ReactElement {
     // Define states
     const [artists, setArtists] = useState<IArtist[]>(data[0]);
     const [imageCredits, setImageCredits] = useState<IImageCredits[]>(data[1]);
-    const [user, setUser] = useState<IUser>(data[2]);
-    const [works, setWorks] = useState<IWork[]>(data[3]);
-    const [worksArtists, setWorksArtists] = useState<IWorkArtist[]>(data[4]);
+    const [works, setWorks] = useState<IWork[]>(data[2]);
+    const [worksArtists, setWorksArtists] = useState<IWorkArtist[]>(data[3]);
     const [randomWork, setRandomWork] = useState<IWork>(
         works[Math.floor(Math.random() * works.length)]
     );

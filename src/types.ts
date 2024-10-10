@@ -1,9 +1,3 @@
-import {
-    IArtist,
-    IImageCredits,
-    IUser,
-    IWork,
-    IWorkArtist,
-} from "./interfaces";
+import { IArtist, IImageCredits, IWork, IWorkArtist } from "./interfaces";
 
-export type TData = [IArtist[], IImageCredits[], IUser, IWork[], IWorkArtist[]];
+export type TData = [IArtist[], IImageCredits[], IWork[], IWorkArtist[]];

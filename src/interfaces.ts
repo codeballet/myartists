@@ -10,16 +10,6 @@ export interface IImageCredits {
     credit: string;
 }
 
-export interface IUser {
-    artist: boolean;
-    favorite_artists: string[];
-    favorite_works: string[];
-    id: string;
-    logged_in: boolean;
-    password: string;
-    username: string;
-}
-
 export interface IWork {
     dates: string[];
     description: string;
