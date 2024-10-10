@@ -1,5 +1,5 @@
 import { ReactElement, useState } from "react";
-import { Card } from "../components";
+import { Card, SearchForm } from "../components";
 import { useRouteLoaderData } from "react-router-dom";
 import { TData } from "../types";
 import { IArtist, IImageCredits, IWork, IWorkArtist } from "../interfaces";
@@ -11,7 +11,9 @@ export function FindPage(): ReactElement {
 
     // Define states
     const [artists, setArtists] = useState<IArtist[]>(data[0]);
+    const [foundWorks, setFoundWorks] = useState<IWork[]>(data[2]);
     const [imageCredits, setImageCredits] = useState<IImageCredits[]>(data[1]);
+    const [searchTerm, setSearchTerm] = useState<string>("");
     const [works, setWorks] = useState<IWork[]>(data[2]);
     const [worksArtists, setWorksArtists] = useState<IWorkArtist[]>(data[3]);
 
@@ -25,10 +27,17 @@ export function FindPage(): ReactElement {
     return (
         <section className="find-page">
             <div className="forms-container">
-                <h1>Add forms here</h1>
+                <SearchForm
+                    foundWorks={foundWorks}
+                    setFoundWorks={setFoundWorks}
+                    searchTerm={searchTerm}
+                    setSearchTerm={setSearchTerm}
+                    works={works}
+                    setWorks={setWorks}
+                />
             </div>
             <div className="cards-container">
-                {shuffleArray(works).map((work) => (
+                {shuffleArray(foundWorks).map((work) => (
                     <Card
                         key={work.id}
                         artists={workArtists(artists, work.id, worksArtists)}
