@@ -3,10 +3,11 @@ import { NavLink } from "react-router-dom";
 import { UserContext } from "../context/UserContextProvider";
 
 export function Header(): ReactElement {
-    const { loggedIn, setLoggedIn } = useContext(UserContext);
+    const { setArtist, loggedIn, setLoggedIn } = useContext(UserContext);
 
     const handleLogOut = () => {
         if (loggedIn) {
+            setArtist(false);
             setLoggedIn(false);
         }
     };

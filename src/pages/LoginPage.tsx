@@ -4,6 +4,7 @@ import { Navigate } from "react-router-dom";
 
 export function LoginPage(): ReactElement {
     const {
+        setArtist,
         loggedIn,
         setLoggedIn,
         password,
@@ -15,6 +16,7 @@ export function LoginPage(): ReactElement {
     const handleLoginForm = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoggedIn(true);
+        setArtist(true);
     };
 
     return (
