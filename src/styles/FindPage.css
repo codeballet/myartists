@@ -14,6 +14,8 @@
             gap: 0.8rem;
             background-color: var(--color-grey-dark);
 
+            position: relative;
+
             .card-figure {
                 display: flex;
                 flex-direction: column;
@@ -58,6 +60,13 @@
                 .card-work {
                     font-size: 1.1rem;
                 }
+            }
+
+            .favorite-icon {
+                position: absolute;
+                right: 0.3rem;
+                bottom: 0.3rem;
+                cursor: pointer;
             }
         }
     }

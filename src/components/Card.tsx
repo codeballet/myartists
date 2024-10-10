@@ -1,5 +1,7 @@
-import { ReactElement } from "react";
+import { ReactElement, useContext } from "react";
 import { IImageCredits, IWork } from "../interfaces";
+import { FavoriteIcon } from ".";
+import { UserContext } from "../context/UserContextProvider";
 
 interface IHomeCardProps {
     artists: string[];
@@ -12,6 +14,8 @@ export function Card({
     imageCredits,
     work,
 }: IHomeCardProps): ReactElement {
+    const { loggedIn } = useContext(UserContext);
+
     const image = work.images[Math.floor(Math.random() * work.images.length)];
     const filteredCredit = imageCredits.filter((img) => img.image_id === image);
     const credit = filteredCredit[0].credit;
@@ -32,6 +36,7 @@ export function Card({
                     <p>{work.title}</p>
                 </div>
             </div>
+            {loggedIn && <FavoriteIcon />}
         </section>
     );
 }
