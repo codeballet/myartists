@@ -1,4 +1,7 @@
-.find-page {
+/* CSS for cards both on the FindPage and MinePage */
+
+.find-page,
+.mine-page {
     margin: 2rem;
 
     .cards-container {
@@ -81,7 +84,8 @@
 }
 
 @media screen and (max-width: 950px) {
-    .find-page {
+    .find-page,
+    .mine-page {
         .cards-container {
             .card {
                 grid-column: span 6;
