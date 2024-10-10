@@ -20,52 +20,74 @@ export const artists: IArtist[] = [
         id: "001",
         images: ["001_00"],
     },
+    {
+        family_name: "brorsson",
+        first_name: "christine",
+        id: "002",
+        images: ["002_00"],
+    },
 ];
 
 export const imageCredits: IImageCredits[] = [
     {
-        image: "000_00",
+        image_id: "000_00",
         credit: "David Möller",
     },
     {
-        image: "000_000_00",
+        image_id: "000_000_00",
         credit: "David Möller",
     },
     {
-        image: "000_000_01",
+        image_id: "000_000_01",
         credit: "David Möller",
     },
     {
-        image: "000_001_00",
+        image_id: "000_001_00",
         credit: "David Möller",
     },
     {
-        image: "000_001_01",
+        image_id: "000_001_01",
         credit: "David Möller",
     },
     {
-        image: "000_002_00",
+        image_id: "000_002_00",
         credit: "David Möller",
     },
     {
-        image: "000_002_01",
+        image_id: "000_002_01",
         credit: "David Möller",
     },
     {
-        image: "000_003_00",
+        image_id: "000_003_00",
         credit: "David Möller",
     },
     {
-        image: "000_003_01",
+        image_id: "000_003_01",
         credit: "David Möller",
     },
     {
-        image: "001_00",
+        image_id: "001_00",
         credit: "Johan Stjernholm",
     },
     {
-        image: "001_000_00",
+        image_id: "001_000_00",
         credit: "Johan Stjernholm",
+    },
+    {
+        image_id: "002_00",
+        credit: "Emil Forsander",
+    },
+    {
+        image_id: "002_000_00",
+        credit: "Emil Forsander",
+    },
+    {
+        image_id: "002_001_00",
+        credit: "AdeY",
+    },
+    {
+        image_id: "002_001_01",
+        credit: "AdeY",
     },
 ];
 
@@ -120,12 +142,30 @@ export const works: IWork[] = [
     },
     {
         dates: [],
-        description: "Immersive Performance Art with Generative AI",
+        description: "Immersive Performance Art with Generative AI.",
         id: "001_000",
         images: ["001_000_00"],
         places: [],
         times: [],
         title: "Mazu: Water Legends",
+    },
+    {
+        dates: [],
+        description: "Platsspecifikt verk på Kronohäktet i Ängelholm.",
+        id: "002_000",
+        images: ["002_000_00"],
+        places: [],
+        times: [],
+        title: "Dans genom väggarna",
+    },
+    {
+        dates: [],
+        description: "Christine Brorsson in RoomX Palladium.",
+        id: "002_001",
+        images: ["002_001_00", "002_001_01"],
+        places: [],
+        times: [],
+        title: "RoomX Palladium",
     },
 ];
 
@@ -141,23 +181,28 @@ export const worksArtists: IWorkArtist[] = [
         artist_id: "000",
     },
     {
-        id: "0002",
+        id: "0003",
         work_id: "000_002",
         artist_id: "000",
     },
     {
-        id: "0003",
+        id: "0004",
         work_id: "000_003",
         artist_id: "000",
     },
     {
-        id: "0004",
+        id: "0005",
         work_id: "001_000",
         artist_id: "001",
     },
     {
-        id: "0005",
-        work_id: "001_000",
-        artist_id: "000",
+        id: "0006",
+        work_id: "002_000",
+        artist_id: "002",
+    },
+    {
+        id: "0007",
+        work_id: "002_001",
+        artist_id: "002",
     },
 ];

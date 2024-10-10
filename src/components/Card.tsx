@@ -13,7 +13,7 @@ export function Card({
     work,
 }: IHomeCardProps): ReactElement {
     const image = work.images[Math.floor(Math.random() * work.images.length)];
-    const filteredCredit = imageCredits.filter((img) => img.image === image);
+    const filteredCredit = imageCredits.filter((img) => img.image_id === image);
     const credit = filteredCredit[0].credit;
 
     return (

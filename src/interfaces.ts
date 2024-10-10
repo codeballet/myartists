@@ -6,7 +6,7 @@ export interface IArtist {
 }
 
 export interface IImageCredits {
-    image: string;
+    image_id: string;
     credit: string;
 }
 
