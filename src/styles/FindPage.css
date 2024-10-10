@@ -62,6 +62,10 @@
                 }
             }
 
+            .favorite {
+                font-variation-settings: "FILL" 1;
+            }
+
             .favorite-icon {
                 position: absolute;
                 right: 0.3rem;

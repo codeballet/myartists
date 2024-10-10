@@ -36,7 +36,7 @@ export function Card({
                     <p>{work.title}</p>
                 </div>
             </div>
-            {loggedIn && <FavoriteIcon />}
+            {loggedIn && <FavoriteIcon workId={work.id} />}
         </section>
     );
 }
