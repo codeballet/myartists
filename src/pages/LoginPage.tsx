@@ -57,7 +57,7 @@ export function LoginPage(): ReactElement {
                         />
                     </div>
 
-                    <button>Submit</button>
+                    <button type="submit">Submit</button>
                 </form>
             )}
         </section>
