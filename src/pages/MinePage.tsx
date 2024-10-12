@@ -1,7 +1,7 @@
 import { ReactElement, useContext, useState } from "react";
 import { useRouteLoaderData } from "react-router-dom";
 import { TData } from "../types";
-import { IArtist, IImageCredits, IWork, IWorkArtist } from "../interfaces";
+import { IArtist, IImage, IWork, IWorkArtist } from "../interfaces";
 import { UserContext } from "../context/UserContextProvider";
 import { workArtists } from "../utils";
 import { Card } from "../components";
@@ -15,12 +15,24 @@ export function MinePage(): ReactElement {
 
     // Define states
     const [artists, setArtists] = useState<IArtist[]>(data[0]);
-    const [imageCredits, setImageCredits] = useState<IImageCredits[]>(data[1]);
+    const [images, setImages] = useState<IImage[]>(data[1]);
     const [works, setWorks] = useState<IWork[]>(data[2]);
     const [worksArtists, setWorksArtists] = useState<IWorkArtist[]>(data[3]);
 
     const myWorks = (): IWork[] => {
         return works.filter((work) => favoriteWorks.includes(work.id));
+    };
+
+    const getImageDetails = (work: IWork): string[] => {
+        // Get image url
+        const imageUrl: string =
+            work.images[Math.floor(Math.random() * work.images.length)];
+
+        // Get image credits
+        const imageCredits = images.filter((img) => img.url === imageUrl)[0]
+            .credits;
+
+        return [imageUrl, imageCredits];
     };
 
     return (
@@ -35,7 +47,8 @@ export function MinePage(): ReactElement {
                     <Card
                         key={work.id}
                         artists={workArtists(artists, work.id, worksArtists)}
-                        imageCredits={imageCredits}
+                        credits={getImageDetails(work)[1]}
+                        image={getImageDetails(work)[0]}
                         work={work}
                     />
                 ))}
