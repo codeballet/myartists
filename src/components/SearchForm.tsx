@@ -12,7 +12,7 @@ export function SearchForm({
     return (
         <form id="searchForm" onSubmit={(e) => e.preventDefault()}>
             <label htmlFor="searchInput" id="searchLabel">
-                Who or what do you want to find?
+                Find People and Works
             </label>
             <input
                 autoFocus
