@@ -18,7 +18,7 @@ export function FindPage(): ReactElement {
     // Define states
     const [artists, setArtists] = useState<IArtist[]>(data[0]);
     const [foundWorks, setFoundWorks] = useState<IWork[]>(data[3]);
-    const [imageCredits, setImageCredit] = useState<IImageCredit[]>(data[2]);
+    const [imageCredits, setImageCredits] = useState<IImageCredit[]>(data[2]);
     const [images, setImages] = useState<IImage[]>(data[1]);
     const [works, setWorks] = useState<IWork[]>(data[3]);
     const [worksArtists, setWorksArtists] = useState<IWorkArtist[]>(data[4]);
