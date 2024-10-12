@@ -9,6 +9,13 @@
         grid-gap: 2rem;
         grid-template-columns: repeat(12, 1fr);
 
+        h2 {
+            align-self: center;
+            margin-top: 4rem;
+            color: var(--color-grey-light);
+            font-size: 1.2rem;
+        }
+
         .card {
             grid-column: span 4;
             display: flex;
@@ -18,25 +25,31 @@
             background-color: var(--color-grey-dark);
             height: 30rem;
 
-            .card-figure {
+            .figure-container {
                 display: flex;
                 flex-direction: column;
-                align-items: center;
                 flex-grow: 1;
-                max-height: 24rem;
-                gap: 0.2rem;
-                margin-bottom: 0;
 
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
+                .card-figure {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    flex-grow: 1;
+                    max-height: 24rem;
+                    gap: 0.2rem;
+                    margin-bottom: 0;
 
-                figcaption {
-                    color: var(--color-grey-light);
-                    font-size: 0.7rem;
-                    opacity: 0.6;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+
+                    figcaption {
+                        color: var(--color-grey-light);
+                        font-size: 0.7rem;
+                        opacity: 0.6;
+                    }
                 }
             }
 
