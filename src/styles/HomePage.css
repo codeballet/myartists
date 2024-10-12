@@ -47,12 +47,12 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            min-width: 20rem;
             gap: 2rem;
 
             .card-artists,
             .card-work {
                 color: var(--color-grey-light);
-                width: max-content;
             }
 
             .card-artists {
