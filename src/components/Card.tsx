@@ -13,7 +13,7 @@ interface ICardProps {
 
 export function Card({
     artists,
-    imageCredits,
+    // imageCredits,
     newRandomWork,
     work,
 }: ICardProps): ReactElement {
@@ -21,14 +21,15 @@ export function Card({
     const location = useLocation();
 
     const image = work.images[Math.floor(Math.random() * work.images.length)];
-    const filteredCredit = imageCredits.filter((img) => img.image_id === image);
-    const credit = filteredCredit[0].credit;
+    // const filteredCredit = imageCredits.filter((img) => img.image_id === image);
+    // const credit = filteredCredit[0].credit;
 
     return (
         <section className="card">
             <figure className="card-figure">
-                <img src={`src/assets/${image}.jpg`} alt="Art Work" />
-                <figcaption>Photo by {credit}</figcaption>
+                {/* <img src={`src/assets/${image}.jpg`} alt="Art Work" /> */}
+                <img src={image} alt="Art Work" />
+                {/* <figcaption>Photo by {credit}</figcaption> */}
             </figure>
             <div className="card-text">
                 <ul className="card-artists">
