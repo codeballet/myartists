@@ -2,7 +2,13 @@ import { ReactElement, useState } from "react";
 import { Card, SearchForm } from "../components";
 import { useRouteLoaderData } from "react-router-dom";
 import { TData } from "../types";
-import { IArtist, IImageCredits, IWork, IWorkArtist } from "../interfaces";
+import {
+    IArtist,
+    IImage,
+    IImageCredit,
+    IWork,
+    IWorkArtist,
+} from "../interfaces";
 import { workArtists } from "../utils";
 
 export function FindPage(): ReactElement {
@@ -11,10 +17,11 @@ export function FindPage(): ReactElement {
 
     // Define states
     const [artists, setArtists] = useState<IArtist[]>(data[0]);
-    const [foundWorks, setFoundWorks] = useState<IWork[]>(data[2]);
-    const [imageCredits, setImageCredits] = useState<IImageCredits[]>(data[1]);
-    const [works, setWorks] = useState<IWork[]>(data[2]);
-    const [worksArtists, setWorksArtists] = useState<IWorkArtist[]>(data[3]);
+    const [foundWorks, setFoundWorks] = useState<IWork[]>(data[3]);
+    const [imageCredits, setImageCredit] = useState<IImageCredit[]>(data[2]);
+    const [images, setImages] = useState<IImage[]>(data[1]);
+    const [works, setWorks] = useState<IWork[]>(data[3]);
+    const [worksArtists, setWorksArtists] = useState<IWorkArtist[]>(data[4]);
 
     // Shuffle content of array
     const shuffleArray = (arr: IWork[]): IWork[] => {
@@ -39,6 +46,7 @@ export function FindPage(): ReactElement {
                         key={work.id}
                         artists={workArtists(artists, work.id, worksArtists)}
                         imageCredits={imageCredits}
+                        images={images}
                         work={work}
                     />
                 ))}

@@ -5,7 +5,12 @@ export interface IArtist {
     images: string[];
 }
 
-export interface IImageCredits {
+export interface IImage {
+    id: string;
+    url: string;
+}
+
+export interface IImageCredit {
     image_id: string;
     credit: string;
 }

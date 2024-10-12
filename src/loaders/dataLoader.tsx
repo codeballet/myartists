@@ -1,11 +1,6 @@
-import { artists, imageCredits, works, worksArtists } from "../data";
-import { IArtist, IImageCredits, IWork, IWorkArtist } from "../interfaces";
+import { artists, imageCredits, images, works, worksArtists } from "../data";
+import { TData } from "../types";
 
-export const dataLoader = (): (
-    | IArtist[]
-    | IImageCredits[]
-    | IWork[]
-    | IWorkArtist[]
-)[] => {
-    return [artists, imageCredits, works, worksArtists];
+export const dataLoader = (): TData => {
+    return [artists, images, imageCredits, works, worksArtists];
 };
