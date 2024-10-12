@@ -17,8 +17,8 @@ export function SearchForm({
     const [searchTerm, setSearchTerm] = useState<string>("");
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>): void => {
+        setSearchTerm(e.target.value);
         const find = e.target.value.toLowerCase();
-        setSearchTerm(find);
 
         // Find matching works from title and description
         const matchingWorks = works.filter(
@@ -28,11 +28,10 @@ export function SearchForm({
         );
 
         // Find matching artists names
-        const matchingArtists = artists.filter(
-            (artist) =>
-                artist.first_name.toLowerCase().includes(find) ||
-                artist.family_name.toLowerCase().includes(find)
-        );
+        const matchingArtists = artists.filter((artist) => {
+            const fullName = `${artist.first_name.toLowerCase()} ${artist.family_name.toLowerCase()}`;
+            return fullName.includes(find);
+        });
 
         // Filter worksArtists list for matching items
         const matchingWorksArtists = worksArtists.filter((item) => {
