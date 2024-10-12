@@ -25,10 +25,9 @@ export function FindPage(): ReactElement {
             work.images[Math.floor(Math.random() * work.images.length)];
 
         // Get image credits
-        const imageCredits = "";
-        // const imageCredits: string = images.filter((image) => {
-        //     image.url === imageUrl;
-        // })[0].credits;
+        const imageCredits = images.filter((img) => img.url === imageUrl)[0]
+            .credits;
+
         return [imageUrl, imageCredits];
     };
 
@@ -104,7 +103,7 @@ export function FindPage(): ReactElement {
                     <Card
                         key={work.id}
                         artists={workArtists(artists, work.id, worksArtists)}
-                        // credits={getImageDetails(work)[1]}
+                        credits={getImageDetails(work)[1]}
                         image={getImageDetails(work)[0]}
                         work={work}
                     />
