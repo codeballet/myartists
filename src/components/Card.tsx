@@ -27,14 +27,14 @@ export function Card({
     // Find id for image
     const imageId: string = images.filter((img) => img.url === image)[0].id;
     // Acquire credits for image
-    const credit = imageCredits.filter((img) => img.image_id === imageId)[0]
+    const credits = imageCredits.filter((img) => img.image_id === imageId)[0]
         .credit;
 
     return (
         <section className="card">
             <figure className="card-figure">
                 <img src={image} alt="Art Work" />
-                <figcaption>Photo by {credit}</figcaption>
+                <figcaption>Photo by {credits}</figcaption>
             </figure>
             <div className="card-text">
                 <ul className="card-artists">
