@@ -1,4 +1,4 @@
-import { ReactElement, useContext } from "react";
+import { ReactElement, useContext, useState } from "react";
 import { IImage, IImageCredit, IWork } from "../interfaces";
 import { FavoriteIcon } from ".";
 import { UserContext } from "../context/UserContextProvider";
@@ -20,6 +20,7 @@ export function Card({
     work,
 }: ICardProps): ReactElement {
     const { loggedIn } = useContext(UserContext);
+    const [loaded, setLoaded] = useState(false);
     const location = useLocation();
 
     // Pick a random image from a work
@@ -30,12 +31,26 @@ export function Card({
     const credits = imageCredits.filter((img) => img.image_id === imageId)[0]
         .credit;
 
+    const handleImageLoad = () => {
+        setLoaded(true);
+        console.log("Image loaded");
+    };
+
+    const handleRefresh = () => {
+        setLoaded(false);
+        if (newRandomWork) newRandomWork();
+    };
+
     return (
         <section className="card">
-            <figure className="card-figure">
-                <img src={image} alt="Art Work" />
-                <figcaption>Photo by {credits}</figcaption>
-            </figure>
+            <div className="figure-container">
+                {!loaded && <h2>Loading new image...</h2>}
+                <figure className="card-figure">
+                    <img src={image} alt="Art Work" onLoad={handleImageLoad} />
+                    <figcaption>Photo by {credits}</figcaption>
+                </figure>
+            </div>
+
             <div className="card-text">
                 <ul className="card-artists">
                     {artists.map((artist, index) => (
@@ -47,7 +62,7 @@ export function Card({
                     {loggedIn && <FavoriteIcon workId={work.id} />}
                 </div>
                 {location.pathname === "/" ? (
-                    <button className="card-refresh" onClick={newRandomWork}>
+                    <button className="card-refresh" onClick={handleRefresh}>
                         Show another
                     </button>
                 ) : null}
