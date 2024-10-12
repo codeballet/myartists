@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { ChangeEvent, ReactElement, useState } from "react";
 import { Card, SearchForm } from "../components";
 import { useRouteLoaderData } from "react-router-dom";
 import { TData } from "../types";
@@ -9,13 +9,80 @@ export function FindPage(): ReactElement {
     // Acquire data from loader (simulating a DB)
     const data = useRouteLoaderData("app") as TData;
 
-    // Define states
+    // Define states from loader data
     const [artists, setArtists] = useState<IArtist[]>(data[0]);
-    const [foundWorks, setFoundWorks] = useState<IWork[]>(data[3]);
-    const [imageCredits, setImageCredits] = useState<IImageCredit[]>(data[2]);
+    const [foundWorks, setFoundWorks] = useState<IWork[]>(data[2]);
     const [images, setImages] = useState<IImage[]>(data[1]);
-    const [works, setWorks] = useState<IWork[]>(data[3]);
-    const [worksArtists, setWorksArtists] = useState<IWorkArtist[]>(data[4]);
+    const [works, setWorks] = useState<IWork[]>(data[2]);
+    const [worksArtists, setWorksArtists] = useState<IWorkArtist[]>(data[3]);
+
+    // Define states for search
+    const [searchTerm, setSearchTerm] = useState<string>("");
+
+    const getImageDetails = (work: IWork): string[] => {
+        // Get image url
+        const imageUrl: string =
+            work.images[Math.floor(Math.random() * work.images.length)];
+
+        // Get image credits
+        const imageCredits = "";
+        // const imageCredits: string = images.filter((image) => {
+        //     image.url === imageUrl;
+        // })[0].credits;
+        return [imageUrl, imageCredits];
+    };
+
+    const handleSearch = (e: ChangeEvent<HTMLInputElement>): void => {
+        setSearchTerm(e.target.value);
+        const find = e.target.value.toLowerCase();
+
+        // Find matching works from title and description
+        const matchingWorks = works.filter(
+            (work) =>
+                work.title.toLowerCase().includes(find) ||
+                work.description.toLowerCase().includes(find)
+        );
+
+        // Find matching artists names
+        const matchingArtists = artists.filter((artist) => {
+            const fullName = `${artist.first_name.toLowerCase()} ${artist.family_name.toLowerCase()}`;
+            return fullName.includes(find);
+        });
+
+        // Filter worksArtists list for matching items
+        const matchingWorksArtists = worksArtists.filter((item) => {
+            for (let artist of matchingArtists) {
+                if (artist.id === item.artist_id) {
+                    return true;
+                }
+            }
+        });
+
+        // Find works with found work Ids
+        const worksByIdMatch = works.filter((work) => {
+            for (let item of matchingWorksArtists) {
+                if (work.id === item.work_id) {
+                    return true;
+                }
+            }
+        });
+
+        // Get list of all unique found work ids
+        const allMatchingWorks = matchingWorks.concat(worksByIdMatch);
+        const allMatchingWorkIds = allMatchingWorks.map((work) => work.id);
+        const uniqueMatchingWorkIds = [...new Set(allMatchingWorkIds)];
+
+        // Extract all the unique work ids into new array of works
+        const uniqueMatchingWorks = works.filter((work) => {
+            for (let id of uniqueMatchingWorkIds) {
+                if (id === work.id) {
+                    return true;
+                }
+            }
+        });
+
+        setFoundWorks(uniqueMatchingWorks);
+    };
 
     // Shuffle content of array
     const shuffleArray = (arr: IWork[]): IWork[] => {
@@ -28,10 +95,8 @@ export function FindPage(): ReactElement {
         <section className="find-page">
             <div className="forms-container">
                 <SearchForm
-                    artists={artists}
-                    setFoundWorks={setFoundWorks}
-                    works={works}
-                    worksArtists={worksArtists}
+                    handleSearch={handleSearch}
+                    searchTerm={searchTerm}
                 />
             </div>
             <div className="cards-container">
@@ -39,8 +104,8 @@ export function FindPage(): ReactElement {
                     <Card
                         key={work.id}
                         artists={workArtists(artists, work.id, worksArtists)}
-                        imageCredits={imageCredits}
-                        images={images}
+                        // credits={getImageDetails(work)[1]}
+                        image={getImageDetails(work)[0]}
                         work={work}
                     />
                 ))}
