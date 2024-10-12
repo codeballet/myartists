@@ -1,7 +1,6 @@
 import {
     IArtist,
     IImage,
-    IImageCredit,
     IWork,
     IWorkArtist,
 } from "./interfaces";
@@ -9,7 +8,6 @@ import {
 export type TData = [
     IArtist[],
     IImage[],
-    IImageCredit[],
     IWork[],
     IWorkArtist[]
 ];

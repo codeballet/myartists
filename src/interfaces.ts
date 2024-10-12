@@ -6,14 +6,15 @@ export interface IArtist {
 }
 
 export interface IImage {
+    credits: string;
     id: string;
     url: string;
 }
 
-export interface IImageCredit {
-    image_id: string;
-    credit: string;
-}
+// export interface IImageCredit {
+//     image_id: string;
+//     credit: string;
+// }
 
 export interface IWork {
     dates: string[];

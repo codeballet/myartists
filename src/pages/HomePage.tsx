@@ -1,12 +1,6 @@
-import { ReactElement, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { useRouteLoaderData } from "react-router-dom";
-import {
-    IArtist,
-    IImage,
-    IImageCredit,
-    IWork,
-    IWorkArtist,
-} from "../interfaces";
+import { IArtist, IImage, IWork, IWorkArtist } from "../interfaces";
 import { Card } from "../components";
 import { TData } from "../types";
 import { workArtists } from "../utils";
@@ -17,25 +11,50 @@ export function HomePage(): ReactElement {
 
     // Define states
     const [artists, setArtists] = useState<IArtist[]>(data[0]);
-    const [imageCredits, setImageCredits] = useState<IImageCredit[]>(data[2]);
     const [images, setImages] = useState<IImage[]>(data[1]);
-    const [works, setWorks] = useState<IWork[]>(data[3]);
-    const [worksArtists, setWorksArtists] = useState<IWorkArtist[]>(data[4]);
+    const [image, setImage] = useState<IImage>();
     const [randomWork, setRandomWork] = useState<IWork>(
-        works[Math.floor(Math.random() * works.length)]
+        data[2][Math.floor(Math.random() * data[3].length)]
     );
+    const [works, setWorks] = useState<IWork[]>(data[2]);
+    const [worksArtists, setWorksArtists] = useState<IWorkArtist[]>(data[3]);
 
-    // Set state of a new random work
+    useEffect(() => {
+        const randomImageUrl: string =
+            randomWork.images[
+                Math.floor(Math.random() * randomWork.images.length)
+            ];
+        const randomImage: IImage = images.filter(
+            (image) => image.url === randomImageUrl
+        )[0];
+        setImage(randomImage);
+    }, []);
+
+    // Get a new random work
     const newRandomWork = () => {
-        setRandomWork(works[Math.floor(Math.random() * works.length)]);
+        let newWork = works[Math.floor(Math.random() * works.length)];
+
+        // Check if the new work is same as before
+        while (newWork === randomWork) {
+            newWork = works[Math.floor(Math.random() * works.length)];
+        }
+        setRandomWork(newWork);
+
+        // Get a random image from the work
+        const randomImageUrl: string =
+            newWork.images[Math.floor(Math.random() * newWork.images.length)];
+        const randomImage: IImage = images.filter(
+            (image) => image.url === randomImageUrl
+        )[0];
+        setImage(randomImage);
     };
 
     return (
         <section className="home-page">
             <Card
                 artists={workArtists(artists, randomWork.id, worksArtists)}
-                imageCredits={imageCredits}
-                images={images}
+                credits={image?.credits}
+                image={image?.url}
                 newRandomWork={newRandomWork}
                 work={randomWork}
             />

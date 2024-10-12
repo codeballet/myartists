@@ -1,21 +1,21 @@
 import { ReactElement, useContext, useState } from "react";
-import { IImage, IImageCredit, IWork } from "../interfaces";
+import { IWork } from "../interfaces";
 import { FavoriteIcon } from ".";
 import { UserContext } from "../context/UserContextProvider";
 import { useLocation } from "react-router-dom";
 
 interface ICardProps {
     artists: string[];
-    imageCredits: IImageCredit[];
-    images: IImage[];
+    credits?: string;
+    image?: string;
     newRandomWork?: () => void;
     work: IWork;
 }
 
 export function Card({
     artists,
-    imageCredits,
-    images,
+    credits,
+    image,
     newRandomWork,
     work,
 }: ICardProps): ReactElement {
@@ -24,16 +24,15 @@ export function Card({
     const location = useLocation();
 
     // Pick a random image from a work
-    const image = work.images[Math.floor(Math.random() * work.images.length)];
+    // const image = work.images[Math.floor(Math.random() * work.images.length)];
     // Find id for image
-    const imageId: string = images.filter((img) => img.url === image)[0].id;
+    // const imageId: string = images.filter((img) => img.url === image)[0].id;
     // Acquire credits for image
-    const credits = imageCredits.filter((img) => img.image_id === imageId)[0]
-        .credit;
+    // const credits = imageCredits.filter((img) => img.image_id === imageId)[0]
+    //     .credit;
 
     const handleImageLoad = () => {
         setLoaded(true);
-        console.log("Image loaded");
     };
 
     const handleRefresh = () => {

@@ -1,10 +1,4 @@
-import {
-    IArtist,
-    IImage,
-    IImageCredit,
-    IWork,
-    IWorkArtist,
-} from "./interfaces";
+import { IArtist, IImage, IWork, IWorkArtist } from "./interfaces";
 
 // name structure for images: artist_image, nnn_nn
 export const artists: IArtist[] = [
@@ -34,127 +28,142 @@ export const artists: IArtist[] = [
     },
 ];
 
-export const imageCredits: IImageCredit[] = [
-    {
-        image_id: "000_00",
-        credit: "David Möller",
-    },
-    {
-        image_id: "000_000_00",
-        credit: "David Möller",
-    },
-    {
-        image_id: "000_000_01",
-        credit: "David Möller",
-    },
-    {
-        image_id: "000_001_00",
-        credit: "David Möller",
-    },
-    {
-        image_id: "000_001_01",
-        credit: "David Möller",
-    },
-    {
-        image_id: "000_002_00",
-        credit: "David Möller",
-    },
-    {
-        image_id: "000_002_01",
-        credit: "David Möller",
-    },
-    {
-        image_id: "000_003_00",
-        credit: "David Möller",
-    },
-    {
-        image_id: "000_003_01",
-        credit: "David Möller",
-    },
-    {
-        image_id: "001_00",
-        credit: "Johan Stjernholm",
-    },
-    {
-        image_id: "001_000_00",
-        credit: "Johan Stjernholm",
-    },
-    {
-        image_id: "002_00",
-        credit: "Emil Forsander",
-    },
-    {
-        image_id: "002_000_00",
-        credit: "Emil Forsander",
-    },
-    {
-        image_id: "002_001_00",
-        credit: "AdeY",
-    },
-    {
-        image_id: "002_001_01",
-        credit: "AdeY",
-    },
-];
+// export const imageCredits: IImageCredit[] = [
+//     {
+//         image_id: "000_00",
+//         credit: "David Möller",
+//     },
+//     {
+//         image_id: "000_000_00",
+//         credit: "David Möller",
+//     },
+//     {
+//         image_id: "000_000_01",
+//         credit: "David Möller",
+//     },
+//     {
+//         image_id: "000_001_00",
+//         credit: "David Möller",
+//     },
+//     {
+//         image_id: "000_001_01",
+//         credit: "David Möller",
+//     },
+//     {
+//         image_id: "000_002_00",
+//         credit: "David Möller",
+//     },
+//     {
+//         image_id: "000_002_01",
+//         credit: "David Möller",
+//     },
+//     {
+//         image_id: "000_003_00",
+//         credit: "David Möller",
+//     },
+//     {
+//         image_id: "000_003_01",
+//         credit: "David Möller",
+//     },
+//     {
+//         image_id: "001_00",
+//         credit: "Johan Stjernholm",
+//     },
+//     {
+//         image_id: "001_000_00",
+//         credit: "Johan Stjernholm",
+//     },
+//     {
+//         image_id: "002_00",
+//         credit: "Emil Forsander",
+//     },
+//     {
+//         image_id: "002_000_00",
+//         credit: "Emil Forsander",
+//     },
+//     {
+//         image_id: "002_001_00",
+//         credit: "AdeY",
+//     },
+//     {
+//         image_id: "002_001_01",
+//         credit: "AdeY",
+//     },
+// ];
 
 export const images: IImage[] = [
     {
+        credits: "David Möller",
         id: "000_00",
         url: "https://www.dropbox.com/scl/fi/h6s65304hur77wynokyb5/david_00.jpg?rlkey=5rcd3md15spe05ibh9cfz0phz&st=ydm0vjl6&raw=1",
     },
     {
+        credits: "Johan Stjernholm",
         id: "001_00",
         url: "https://www.dropbox.com/scl/fi/8bp70wt1avnqcj3ggnjiy/johan_00.jpg?rlkey=xiu2a18p0obkt1aeepq92clz4&st=dd7j2vxj&raw=1",
     },
     {
+        credits: "Emil Forsander",
         id: "002_00",
         url: "https://www.dropbox.com/scl/fi/0ec0n5vqjc6hodtjyx3ut/christine_00.jpg?rlkey=wgdk76szkea6wp6s5ffekkwzu&st=00wlrmoj&raw=1",
     },
     {
+        credits: "David Möller",
         id: "000_000_00",
         url: "https://www.dropbox.com/scl/fi/soburdr6h1lf4cvg7tgim/advertise_00.jpg?rlkey=icovk7j5ns6z3wx215zjf6qor&st=y6s1jsy4&raw=1",
     },
     {
+        credits: "David Möller",
         id: "000_000_01",
         url: "https://www.dropbox.com/scl/fi/qqryeorusq0b757ruypf3/advertise_01.jpg?rlkey=n09oj6ua9hnlfeoejfiv0j0hr&st=bx61qabm&raw=1",
     },
     {
+        credits: "David Möller",
         id: "000_001_00",
         url: "https://www.dropbox.com/scl/fi/47cwykuho4r2vtal3q7mv/business_00.jpg?rlkey=ugbon50e8syeztgm7kizqrwyj&st=j0dewn40&raw=1",
     },
     {
+        credits: "David Möller",
         id: "000_001_01",
         url: "https://www.dropbox.com/scl/fi/g65f6h1fzdbttdw5uqeqc/business_01.jpg?rlkey=9z3hsdaqyt2ej1ea6niasgthl&st=077uelbj&raw=1",
     },
     {
+        credits: "David Möller",
         id: "000_002_00",
         url: "https://www.dropbox.com/scl/fi/mi35mepbaysk9lcjl05ar/fashion_00.jpg?rlkey=otg2t1kt8pnac0qu2xlq0bake&st=zc0fm9m5&raw=1",
     },
     {
+        credits: "David Möller",
         id: "000_002_01",
         url: "https://www.dropbox.com/scl/fi/xqzgt83bnace1nnkibrrl/fashion_01.jpg?rlkey=k2f3zcsg6sfcg747as7x1kse3&st=bz7csozj&raw=1",
     },
     {
+        credits: "David Möller",
         id: "000_003_00",
         url: "https://www.dropbox.com/scl/fi/c98m9a81a87i5reb9rdne/portrait_00.jpg?rlkey=4am4a3eemn1z673vawoti1f6q&st=hjup2ay6&raw=1",
     },
     {
+        credits: "David Möller",
         id: "000_003_01",
         url: "https://www.dropbox.com/scl/fi/38h85h3uhldg2oyrwzgrz/portrait_01.jpg?rlkey=p8ug8x1ewgeyhvboe1sqvppg8&st=qmq7ft5h&raw=1",
     },
     {
+        credits: "Johan Stjernholm",
         id: "001_000_00",
         url: "https://www.dropbox.com/scl/fi/rn6k9m87hec665q784zhe/mazu_00.jpg?rlkey=q2ezygbpuj2fw78c8er27l0xk&st=s8qwbm9y&raw=1",
     },
     {
+        credits: "Emil Forsander",
         id: "002_000_00",
         url: "https://www.dropbox.com/scl/fi/0ec0n5vqjc6hodtjyx3ut/christine_00.jpg?rlkey=wgdk76szkea6wp6s5ffekkwzu&st=28sdor02&raw=1",
     },
     {
+        credits: "AdeY",
         id: "002_001_00",
         url: "https://www.dropbox.com/scl/fi/vnce0whep6773geaim003/roomx_00.jpg?rlkey=rb2r8wgee6psb09t2wqudgjwc&st=fqmpt6eb&raw=1",
     },
     {
+        credits: "AdeY",
         id: "002_001_01",
         url: "https://www.dropbox.com/scl/fi/64nbovb9f42hkmlrpwhvz/roomx_01.jpg?rlkey=fay123k0zkyskg9csscvjofm0&st=qcj5gnjt&raw=1",
     },

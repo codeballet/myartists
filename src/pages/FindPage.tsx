@@ -2,13 +2,7 @@ import { ReactElement, useState } from "react";
 import { Card, SearchForm } from "../components";
 import { useRouteLoaderData } from "react-router-dom";
 import { TData } from "../types";
-import {
-    IArtist,
-    IImage,
-    IImageCredit,
-    IWork,
-    IWorkArtist,
-} from "../interfaces";
+import { IArtist, IImage, IWork, IWorkArtist } from "../interfaces";
 import { workArtists } from "../utils";
 
 export function FindPage(): ReactElement {
