@@ -93,17 +93,18 @@
 
 @media screen and (max-width: 950px) {
     .home-page {
-        flex-grow: 1;
-        flex-direction: column;
-
         .card {
             flex-direction: column;
-            align-items: center;
-            max-height: 100%;
-            margin: 2rem 1rem;
+            margin: 2rem;
 
-            .card-figure {
-                min-width: 70%;
+            .figure-container {
+                .card-figure {
+                    justify-content: center;
+
+                    img {
+                        overflow: hidden;
+                    }
+                }
             }
 
             .card-text {
