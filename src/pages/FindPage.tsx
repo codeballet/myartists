@@ -1,24 +1,27 @@
-import { ChangeEvent, ReactElement, useState } from "react";
+import { ChangeEvent, ReactElement, useContext, useState } from "react";
 import { Card, SearchForm } from "../components";
-import { useRouteLoaderData } from "react-router-dom";
-import { TData } from "../types";
-import { IArtist, IImage, IWork, IWorkArtist } from "../interfaces";
+import { IWork } from "../interfaces";
 import { workArtists } from "../utils";
+import { UserContext } from "../context/UserContextProvider";
 
 export function FindPage(): ReactElement {
-    // Acquire data from loader (simulating a DB)
-    const data = useRouteLoaderData("app") as TData;
+    // Get context
+    const {
+        artists,
+        images,
+        works,
+        worksArtists,
+        setArtists,
+        setImages,
+        setWorks,
+        setWorksArtists,
+    } = useContext(UserContext);
 
-    // Define states from loader data
-    const [artists, setArtists] = useState<IArtist[]>(data[0]);
-    const [foundWorks, setFoundWorks] = useState<IWork[]>(data[2]);
-    const [images, setImages] = useState<IImage[]>(data[1]);
-    const [works, setWorks] = useState<IWork[]>(data[2]);
-    const [worksArtists, setWorksArtists] = useState<IWorkArtist[]>(data[3]);
-
-    // Define states for search
+    // Define states
+    const [foundWorks, setFoundWorks] = useState<IWork[]>(works);
     const [searchTerm, setSearchTerm] = useState<string>("");
 
+    // Acquire url and credits for image
     const getImageDetails = (work: IWork): string[] => {
         // Get image url
         const imageUrl: string =
@@ -102,7 +105,11 @@ export function FindPage(): ReactElement {
                 {shuffleArray(foundWorks).map((work) => (
                     <Card
                         key={work.id}
-                        artists={workArtists(artists, work.id, worksArtists)}
+                        cardArtists={workArtists(
+                            artists,
+                            work.id,
+                            worksArtists
+                        )}
                         credits={getImageDetails(work)[1]}
                         image={getImageDetails(work)[0]}
                         work={work}
