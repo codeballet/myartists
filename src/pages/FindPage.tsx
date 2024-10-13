@@ -1,7 +1,7 @@
 import { ChangeEvent, ReactElement, useContext, useState } from "react";
 import { Card, SearchForm } from "../components";
 import { IWork } from "../interfaces";
-import { workArtists } from "../utils";
+import { shuffleArray, workArtists } from "../utils";
 import { UserContext } from "../context/UserContextProvider";
 
 export function FindPage(): ReactElement {
@@ -18,7 +18,7 @@ export function FindPage(): ReactElement {
     } = useContext(UserContext);
 
     // Define states
-    const [foundWorks, setFoundWorks] = useState<IWork[]>(works);
+    const [foundWorks, setFoundWorks] = useState<IWork[]>(shuffleArray(works));
     const [searchTerm, setSearchTerm] = useState<string>("");
 
     // Acquire url and credits for image
@@ -86,13 +86,6 @@ export function FindPage(): ReactElement {
         setFoundWorks(uniqueMatchingWorks);
     };
 
-    // Shuffle content of array
-    const shuffleArray = (arr: IWork[]): IWork[] => {
-        let newArr: IWork[] = [...arr];
-        newArr.sort(() => Math.random() - 0.5);
-        return newArr;
-    };
-
     return (
         <section className="find-page">
             <div className="forms-container">
@@ -102,7 +95,7 @@ export function FindPage(): ReactElement {
                 />
             </div>
             <div className="cards-container">
-                {shuffleArray(foundWorks).map((work) => (
+                {foundWorks.map((work) => (
                     <Card
                         key={work.id}
                         cardArtists={workArtists(

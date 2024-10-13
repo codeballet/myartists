@@ -1,8 +1,15 @@
-import { IArtist, IWorkArtist } from "./interfaces";
+import { IArtist, IWork, IWorkArtist } from "./interfaces";
 
 // Capitalise first letter
 const capitaliseFLetter = (string: string): string => {
     return string.replace(/^./, string[0].toUpperCase());
+};
+
+// Shuffle content of array
+export const shuffleArray = (arr: IWork[]): IWork[] => {
+    let newArr: IWork[] = [...arr];
+    newArr.sort(() => Math.random() - 0.5);
+    return newArr;
 };
 
 // Return names for all relevant artists for a work
