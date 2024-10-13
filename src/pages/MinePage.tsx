@@ -1,23 +1,23 @@
 import { ReactElement, useContext, useState } from "react";
-import { useRouteLoaderData } from "react-router-dom";
-import { TData } from "../types";
-import { IArtist, IImage, IWork, IWorkArtist } from "../interfaces";
+import { IWork } from "../interfaces";
 import { UserContext } from "../context/UserContextProvider";
 import { workArtists } from "../utils";
 import { Card } from "../components";
 
 export function MinePage(): ReactElement {
-    // Acquire data from loader (simulating a DB)
-    const data = useRouteLoaderData("app") as TData;
-
-    // Acquire context
-    const { favoriteWorks, setFavoriteWorks } = useContext(UserContext);
-
-    // Define states
-    const [artists, setArtists] = useState<IArtist[]>(data[0]);
-    const [images, setImages] = useState<IImage[]>(data[1]);
-    const [works, setWorks] = useState<IWork[]>(data[2]);
-    const [worksArtists, setWorksArtists] = useState<IWorkArtist[]>(data[3]);
+    // Get context
+    const {
+        artists,
+        favoriteWorks,
+        images,
+        works,
+        worksArtists,
+        setArtists,
+        setImages,
+        setWorks,
+        setFavoriteWorks,
+        setWorksArtists,
+    } = useContext(UserContext);
 
     const myWorks = (): IWork[] => {
         return works.filter((work) => favoriteWorks.includes(work.id));
@@ -46,7 +46,11 @@ export function MinePage(): ReactElement {
                 {myWorks().map((work) => (
                     <Card
                         key={work.id}
-                        artists={workArtists(artists, work.id, worksArtists)}
+                        cardArtists={workArtists(
+                            artists,
+                            work.id,
+                            worksArtists
+                        )}
                         credits={getImageDetails(work)[1]}
                         image={getImageDetails(work)[0]}
                         work={work}
