@@ -19,14 +19,18 @@ export function Card({
     newRandomWork,
     work,
 }: ICardProps): ReactElement {
+    // Get context
     const { loggedIn } = useContext(UserContext);
+    // Define states
     const [loaded, setLoaded] = useState(false);
+    // Get location
     const location = useLocation();
 
     const handleImageLoad = () => {
         setLoaded(true);
     };
 
+    // Get new random work
     const handleRefresh = () => {
         setLoaded(false);
         if (newRandomWork) newRandomWork();

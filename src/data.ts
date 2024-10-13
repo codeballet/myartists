@@ -1,6 +1,5 @@
 import { IArtist, IImage, IWork, IWorkArtist } from "./interfaces";
 
-// name structure for images: artist_image, nnn_nn
 export const artists: IArtist[] = [
     {
         family_name: "möller",
@@ -26,6 +25,8 @@ export const artists: IArtist[] = [
     },
 ];
 
+// name structure for artist images: artist_image, nnn_nn
+// name structure for work images: artist_work_image, nnn_nnn_nn
 export const images: IImage[] = [
     {
         credits: "David Möller",
@@ -104,8 +105,7 @@ export const images: IImage[] = [
     },
 ];
 
-// name structure for id: artist_work, nnn_nnn
-// name structure for images: artist_work_image, nnn_nnn_nn
+// name structure for work id: artist_work, nnn_nnn
 export const works: IWork[] = [
     {
         dates: [],

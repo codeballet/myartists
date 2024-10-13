@@ -4,7 +4,7 @@ import { UserContext } from "../context/UserContextProvider";
 import { IWork } from "../interfaces";
 
 export function EditWorkPage(): ReactElement {
-    // Navigate hook
+    // use navigate hook
     const navigate = useNavigate();
 
     // Get params from URL
@@ -18,6 +18,7 @@ export function EditWorkPage(): ReactElement {
         works.filter((work) => work.id === workId)[0]
     );
     const [newTitle, setNewTitle] = useState<string>("");
+    const [newDescription, setNewDescription] = useState<string>("");
 
     const saveEdit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -39,7 +40,8 @@ export function EditWorkPage(): ReactElement {
             (work) => work.id !== workId
         );
         const editedWorks = [editedWork, ...filteredWorks];
-        setWorks(editedWorks);
+        // save new works in alphabetical order
+        setWorks(editedWorks.sort((a, b) => a.title.localeCompare(b.title)));
 
         navigate("/edit");
     };
@@ -47,17 +49,28 @@ export function EditWorkPage(): ReactElement {
     return (
         <section id="editWorkDetails">
             <h2>Edit "{work.title}"</h2>
-            <p>{work.title}</p>
-            <form onSubmit={saveEdit}>
-                <label htmlFor="editTitle">Title:</label>
-                <input
-                    autoFocus
-                    id="editTitle"
-                    onChange={(e) => setNewTitle(e.target.value)}
-                    placeholder={work.title}
-                    type="text"
-                    value={newTitle}
-                />
+            <form id="editWorkForm" onSubmit={saveEdit}>
+                <div id="editTitleElements">
+                    <label htmlFor="editTitle">Title:</label>
+                    <input
+                        autoFocus
+                        id="editTitle"
+                        onChange={(e) => setNewTitle(e.target.value)}
+                        placeholder={work.title}
+                        type="text"
+                        value={newTitle}
+                    />
+                </div>
+                <div id="editDescriptionElements">
+                    <label htmlFor="editDescription">Description:</label>
+                    <input
+                        id="editDescription"
+                        onChange={(e) => setNewDescription(e.target.value)}
+                        placeholder={work.description}
+                        type="text"
+                        value={newDescription}
+                    />
+                </div>
                 <button id="editWorkButton" type="submit">
                     Save
                 </button>

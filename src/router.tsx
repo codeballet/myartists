@@ -2,14 +2,15 @@ import { createBrowserRouter, Outlet } from "react-router-dom";
 import { App } from "./components";
 import {
     AboutPage,
+    AddWorkPage,
     EditPage,
+    EditWorkPage,
     ErrorPage,
     FindPage,
     HomePage,
     LoginPage,
     MinePage,
     NotFoundPage,
-    EditWorkPage,
 } from "./pages";
 import { dataLoader } from "./loaders/dataLoader";
 
@@ -35,6 +36,11 @@ export const router = createBrowserRouter([
                 errorElement: <ErrorPage />,
                 path: "edit",
                 children: [
+                    {
+                        element: <AddWorkPage />,
+                        errorElement: <ErrorPage />,
+                        path: "add",
+                    },
                     {
                         element: <EditWorkPage />,
                         errorElement: <ErrorPage />,

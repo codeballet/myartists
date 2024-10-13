@@ -3,5 +3,4 @@ export * from "./Card";
 export * from "./FavoriteIcon";
 export * from "./Footer";
 export * from "./Header";
-export * from "./NewWorkForm";
 export * from "./SearchForm";
