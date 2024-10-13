@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Outlet } from "react-router-dom";
 import { App } from "./components";
 import {
     AboutPage,
@@ -9,7 +9,7 @@ import {
     LoginPage,
     MinePage,
     NotFoundPage,
-    WorkDetailsPage,
+    EditWorkPage,
 } from "./pages";
 import { dataLoader } from "./loaders/dataLoader";
 
@@ -26,9 +26,21 @@ export const router = createBrowserRouter([
                 index: true,
             },
             {
-                element: <EditPage />,
+                element: (
+                    <>
+                        <Outlet />
+                        <EditPage />
+                    </>
+                ),
                 errorElement: <ErrorPage />,
                 path: "edit",
+                children: [
+                    {
+                        element: <EditWorkPage />,
+                        errorElement: <ErrorPage />,
+                        path: ":workId",
+                    },
+                ],
             },
             {
                 element: <MinePage />,
@@ -50,11 +62,7 @@ export const router = createBrowserRouter([
                 errorElement: <ErrorPage />,
                 path: "about",
             },
-            {
-                element: <WorkDetailsPage />,
-                errorElement: <ErrorPage />,
-                path: "work/:workId",
-            },
+
             {
                 element: <NotFoundPage />,
                 path: "*",

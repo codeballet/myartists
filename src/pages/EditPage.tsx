@@ -30,7 +30,7 @@ export function EditPage(): ReactElement {
                             {works.map((work) => (
                                 <li key={work.id}>
                                     {work.title}
-                                    <Link to={`/work/${work.id}`}>
+                                    <Link to={work.id}>
                                         <button>Edit</button>
                                     </Link>
 

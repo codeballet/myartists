@@ -1,9 +1,12 @@
 import { FormEvent, ReactElement, useContext, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { UserContext } from "../context/UserContextProvider";
 import { IWork } from "../interfaces";
 
-export function WorkDetailsPage(): ReactElement {
+export function EditWorkPage(): ReactElement {
+    // Navigate hook
+    const navigate = useNavigate();
+
     // Get params from URL
     const { workId } = useParams();
 
@@ -27,7 +30,7 @@ export function WorkDetailsPage(): ReactElement {
             images: work.images,
             places: work.places,
             times: work.times,
-            title: newTitle,
+            title: newTitle ? newTitle : work.title,
         };
         setWork(editedWork);
 
@@ -37,15 +40,18 @@ export function WorkDetailsPage(): ReactElement {
         );
         const editedWorks = [editedWork, ...filteredWorks];
         setWorks(editedWorks);
+
+        navigate("/edit");
     };
 
     return (
         <section id="editWorkDetails">
-            <h2>Work Details Page for work id: {workId}</h2>
+            <h2>Edit "{work.title}"</h2>
             <p>{work.title}</p>
             <form onSubmit={saveEdit}>
-                <label htmlFor="editTitle">Edit title</label>
+                <label htmlFor="editTitle">Title:</label>
                 <input
+                    autoFocus
                     id="editTitle"
                     onChange={(e) => setNewTitle(e.target.value)}
                     placeholder={work.title}
@@ -54,6 +60,12 @@ export function WorkDetailsPage(): ReactElement {
                 />
                 <button id="editWorkButton" type="submit">
                     Save
+                </button>
+                <button
+                    id="cancelEditWorkButton"
+                    onClick={() => navigate("/edit")}
+                >
+                    Cancel
                 </button>
             </form>
         </section>

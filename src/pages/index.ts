@@ -6,4 +6,4 @@ export * from "./HomePage";
 export * from "./LoginPage";
 export * from "./MinePage";
 export * from "./NotFoundPage";
-export * from "./WorkDetailsPage";
+export * from "./EditWorkPage";
