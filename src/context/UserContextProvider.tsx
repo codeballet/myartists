@@ -1,20 +1,31 @@
 import { createContext, ReactElement, ReactNode, useState } from "react";
+import { IArtist, IImage, IWork, IWorkArtist } from "../interfaces";
+import { useRouteLoaderData } from "react-router-dom";
+import { TData } from "../types";
 
 export interface IUserContext {
     artist: boolean;
-    setArtist: (artist: boolean) => void;
+    artists: IArtist[];
     favoriteArtists: string[];
-    setFavoriteArtists: (favoriteArtists: string[]) => void;
     favoriteWorks: string[];
-    setFavoriteWorks: (favoriteWorks: string[]) => void;
     id: string;
-    setId: (id: string) => void;
+    images: IImage[];
     loggedIn: boolean;
-    setLoggedIn: (loggedIn: boolean) => void;
     password: string;
-    setPassword: (password: string) => void;
     username: string;
+    works: IWork[];
+    worksArtists: IWorkArtist[];
+    setArtist: (artist: boolean) => void;
+    setArtists: (artists: IArtist[]) => void;
+    setFavoriteArtists: (favoriteArtists: string[]) => void;
+    setFavoriteWorks: (favoriteWorks: string[]) => void;
+    setId: (id: string) => void;
+    setImages: (images: IImage[]) => void;
+    setLoggedIn: (loggedIn: boolean) => void;
+    setPassword: (password: string) => void;
     setUsername: (username: string) => void;
+    setWorks: (works: IWork[]) => void;
+    setWorksArtists: (worksArtists: IWorkArtist[]) => void;
 }
 
 export interface IUserContextProviderChildren {
@@ -26,29 +37,45 @@ export const UserContext = createContext<IUserContext>({} as IUserContext);
 export function UserContextProvider({
     children,
 }: IUserContextProviderChildren): ReactElement {
-    const [artist, setArtist] = useState<boolean>(true);
-    const [id, setId] = useState<string>("");
+    // Acquire data from loader (simulating a DB)
+    const data = useRouteLoaderData("app") as TData;
+
+    // Set states
+    const [artist, setArtist] = useState<boolean>(false);
+    const [artists, setArtists] = useState<IArtist[]>(data[0]);
     const [favoriteArtists, setFavoriteArtists] = useState<string[]>([]);
     const [favoriteWorks, setFavoriteWorks] = useState<string[]>([]);
+    const [id, setId] = useState<string>("");
+    const [images, setImages] = useState<IImage[]>(data[1]);
     const [loggedIn, setLoggedIn] = useState<boolean>(false);
     const [password, setPassword] = useState<string>("");
     const [username, setUsername] = useState<string>("");
+    const [works, setWorks] = useState<IWork[]>(data[2]);
+    const [worksArtists, setWorksArtists] = useState<IWorkArtist[]>(data[3]);
 
     const values = {
         artist,
-        setArtist,
-        id,
-        setId,
+        artists,
         favoriteArtists,
-        setFavoriteArtists,
         favoriteWorks,
-        setFavoriteWorks,
+        id,
+        images,
         loggedIn,
-        setLoggedIn,
         password,
-        setPassword,
         username,
+        works,
+        worksArtists,
+        setArtist,
+        setArtists,
+        setFavoriteArtists,
+        setFavoriteWorks,
+        setId,
+        setImages,
+        setLoggedIn,
+        setPassword,
         setUsername,
+        setWorks,
+        setWorksArtists,
     };
 
     return (
