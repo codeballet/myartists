@@ -1,4 +1,4 @@
-import { ReactElement, useContext } from "react";
+import { ReactElement, useContext, useState } from "react";
 import { UserContext } from "../context/UserContextProvider";
 import { NewWorkForm } from "../components";
 import { IWork } from "../interfaces";
@@ -6,10 +6,17 @@ import { Link } from "react-router-dom";
 
 export function EditPage(): ReactElement {
     // Get context
-    const { loggedIn, works, setWorks } = useContext(UserContext);
+    const { loggedIn, works } = useContext(UserContext);
+
+    // Define states
+    const [alphabeticWorks, setAlphabeticWorks] = useState<IWork[]>(
+        works.sort((a, b) => a.title.localeCompare(b.title))
+    );
 
     const deleteWork = (deleteWork: IWork): void => {
-        setWorks(works.filter((work) => work.id !== deleteWork.id));
+        setAlphabeticWorks(
+            alphabeticWorks.filter((work) => work.id !== deleteWork.id)
+        );
     };
 
     return (
@@ -27,7 +34,7 @@ export function EditPage(): ReactElement {
                     <article id="editWorks">
                         <h2>Listed works:</h2>
                         <ul>
-                            {works.map((work) => (
+                            {alphabeticWorks.map((work) => (
                                 <li key={work.id}>
                                     {work.title}
                                     <Link to={work.id}>

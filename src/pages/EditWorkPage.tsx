@@ -13,7 +13,7 @@ export function EditWorkPage(): ReactElement {
     // Get context
     const { works, setWorks } = useContext(UserContext);
 
-    // Set states
+    // Define states
     const [work, setWork] = useState<IWork>(
         works.filter((work) => work.id === workId)[0]
     );
