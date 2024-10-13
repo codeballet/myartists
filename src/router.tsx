@@ -9,6 +9,7 @@ import {
     LoginPage,
     MinePage,
     NotFoundPage,
+    WorkDetailsPage,
 } from "./pages";
 import { dataLoader } from "./loaders/dataLoader";
 
@@ -48,6 +49,11 @@ export const router = createBrowserRouter([
                 element: <AboutPage />,
                 errorElement: <ErrorPage />,
                 path: "about",
+            },
+            {
+                element: <WorkDetailsPage />,
+                errorElement: <ErrorPage />,
+                path: "work/:workId",
             },
             {
                 element: <NotFoundPage />,

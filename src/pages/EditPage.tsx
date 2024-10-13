@@ -2,6 +2,7 @@ import { ReactElement, useContext } from "react";
 import { UserContext } from "../context/UserContextProvider";
 import { NewWorkForm } from "../components";
 import { IWork } from "../interfaces";
+import { Link } from "react-router-dom";
 
 export function EditPage(): ReactElement {
     // Get context
@@ -28,8 +29,11 @@ export function EditPage(): ReactElement {
                         <ul>
                             {works.map((work) => (
                                 <li key={work.id}>
-                                    <p>{work.title}</p>
-                                    <button>Edit</button>
+                                    {work.title}
+                                    <Link to={`/work/${work.id}`}>
+                                        <button>Edit</button>
+                                    </Link>
+
                                     <button onClick={() => deleteWork(work)}>
                                         Delete
                                     </button>
