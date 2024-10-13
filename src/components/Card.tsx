@@ -5,7 +5,7 @@ import { UserContext } from "../context/UserContextProvider";
 import { useLocation } from "react-router-dom";
 
 interface ICardProps {
-    artists: string[];
+    cardArtists: string[];
     credits?: string;
     image?: string;
     newRandomWork?: () => void;
@@ -13,7 +13,7 @@ interface ICardProps {
 }
 
 export function Card({
-    artists,
+    cardArtists,
     credits,
     image,
     newRandomWork,
@@ -22,14 +22,6 @@ export function Card({
     const { loggedIn } = useContext(UserContext);
     const [loaded, setLoaded] = useState(false);
     const location = useLocation();
-
-    // Pick a random image from a work
-    // const image = work.images[Math.floor(Math.random() * work.images.length)];
-    // Find id for image
-    // const imageId: string = images.filter((img) => img.url === image)[0].id;
-    // Acquire credits for image
-    // const credits = imageCredits.filter((img) => img.image_id === imageId)[0]
-    //     .credit;
 
     const handleImageLoad = () => {
         setLoaded(true);
@@ -52,7 +44,7 @@ export function Card({
 
             <div className="card-text">
                 <ul className="card-artists">
-                    {artists.map((artist, index) => (
+                    {cardArtists.map((artist, index) => (
                         <li key={index}>{artist}</li>
                     ))}
                 </ul>

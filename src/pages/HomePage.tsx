@@ -1,23 +1,27 @@
-import { ReactElement, useEffect, useState } from "react";
-import { useRouteLoaderData } from "react-router-dom";
-import { IArtist, IImage, IWork, IWorkArtist } from "../interfaces";
+import { ReactElement, useContext, useEffect, useState } from "react";
+import { IImage, IWork } from "../interfaces";
 import { Card } from "../components";
-import { TData } from "../types";
 import { workArtists } from "../utils";
+import { UserContext } from "../context/UserContextProvider";
 
 export function HomePage(): ReactElement {
-    // Acquire data from loader (simulating a DB)
-    const data = useRouteLoaderData("app") as TData;
+    // Get context
+    const {
+        artists,
+        images,
+        works,
+        worksArtists,
+        setArtist,
+        setImages,
+        setWorks,
+        setWorksArtists,
+    } = useContext(UserContext);
 
     // Define states
-    const [artists, setArtists] = useState<IArtist[]>(data[0]);
-    const [images, setImages] = useState<IImage[]>(data[1]);
     const [image, setImage] = useState<IImage>();
     const [randomWork, setRandomWork] = useState<IWork>(
-        data[2][Math.floor(Math.random() * data[3].length)]
+        works[Math.floor(Math.random() * works.length)]
     );
-    const [works, setWorks] = useState<IWork[]>(data[2]);
-    const [worksArtists, setWorksArtists] = useState<IWorkArtist[]>(data[3]);
 
     useEffect(() => {
         const randomImageUrl: string =
@@ -52,7 +56,7 @@ export function HomePage(): ReactElement {
     return (
         <section className="home-page">
             <Card
-                artists={workArtists(artists, randomWork.id, worksArtists)}
+                cardArtists={workArtists(artists, randomWork.id, worksArtists)}
                 credits={image?.credits}
                 image={image?.url}
                 newRandomWork={newRandomWork}
