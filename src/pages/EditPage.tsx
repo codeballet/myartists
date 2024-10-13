@@ -5,11 +5,34 @@ import { Link, useLocation } from "react-router-dom";
 
 export function EditPage(): ReactElement {
     // Get context
-    const { loggedIn, works, setWorks } = useContext(UserContext);
+    const {
+        id,
+        images,
+        loggedIn,
+        works,
+        setImages,
+        worksArtists,
+        setWorks,
+        setWorksArtists,
+    } = useContext(UserContext);
     // Get location
     const location = useLocation();
 
     const deleteWork = (deleteWork: IWork): void => {
+        // Delete image from images table in db
+        setImages(
+            images.filter((image) => !deleteWork.images.includes(image.url))
+        );
+
+        // Delete entry from worksArtists table in db
+        setWorksArtists(
+            worksArtists.filter(
+                (entry) =>
+                    entry.artist_id !== id && entry.work_id !== deleteWork.id
+            )
+        );
+
+        // Delete work from works table in db
         setWorks(works.filter((work) => work.id !== deleteWork.id));
     };
 
