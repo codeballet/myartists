@@ -22,74 +22,9 @@ export const artists: IArtist[] = [
         family_name: "brorsson",
         first_name: "christine",
         id: "002",
-        images: [
-            "https://www.dropbox.com/scl/fi/0ec0n5vqjc6hodtjyx3ut/christine_00.jpg?rlkey=wgdk76szkea6wp6s5ffekkwzu&st=kkvxrsj5&raw=1",
-        ],
+        images: [],
     },
 ];
-
-// export const imageCredits: IImageCredit[] = [
-//     {
-//         image_id: "000_00",
-//         credit: "David Möller",
-//     },
-//     {
-//         image_id: "000_000_00",
-//         credit: "David Möller",
-//     },
-//     {
-//         image_id: "000_000_01",
-//         credit: "David Möller",
-//     },
-//     {
-//         image_id: "000_001_00",
-//         credit: "David Möller",
-//     },
-//     {
-//         image_id: "000_001_01",
-//         credit: "David Möller",
-//     },
-//     {
-//         image_id: "000_002_00",
-//         credit: "David Möller",
-//     },
-//     {
-//         image_id: "000_002_01",
-//         credit: "David Möller",
-//     },
-//     {
-//         image_id: "000_003_00",
-//         credit: "David Möller",
-//     },
-//     {
-//         image_id: "000_003_01",
-//         credit: "David Möller",
-//     },
-//     {
-//         image_id: "001_00",
-//         credit: "Johan Stjernholm",
-//     },
-//     {
-//         image_id: "001_000_00",
-//         credit: "Johan Stjernholm",
-//     },
-//     {
-//         image_id: "002_00",
-//         credit: "Emil Forsander",
-//     },
-//     {
-//         image_id: "002_000_00",
-//         credit: "Emil Forsander",
-//     },
-//     {
-//         image_id: "002_001_00",
-//         credit: "AdeY",
-//     },
-//     {
-//         image_id: "002_001_01",
-//         credit: "AdeY",
-//     },
-// ];
 
 export const images: IImage[] = [
     {
