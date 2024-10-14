@@ -14,8 +14,6 @@ export function EditWorkPage(): ReactElement {
     const { works, setWorks } = useContext(UserContext);
 
     // Define states
-    const [newImageCredits, setNewImageCredits] = useState<string>("");
-    const [newImageUrl, setNewImageUrl] = useState<string>("");
     const [work, setWork] = useState<IWork>(
         works.filter((work) => work.id === workId)[0]
     );
@@ -25,13 +23,10 @@ export function EditWorkPage(): ReactElement {
     const saveEdit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        // Edit image
-        // Edit image credits
-
         // Create new work with edited values
         const editedWork: IWork = {
             dates: work.dates,
-            description: work.description,
+            description: newDescription ? newDescription : work.description,
             id: work.id,
             images: work.images,
             places: work.places,
@@ -74,26 +69,6 @@ export function EditWorkPage(): ReactElement {
                         placeholder={work.description}
                         type="text"
                         value={newDescription}
-                    />
-                </div>
-                <div id="editImageUrlElements">
-                    <label htmlFor="editImageUrl">Image URL:</label>
-                    <input
-                        id="editImageUrl"
-                        onChange={(e) => setNewImageUrl(e.target.value)}
-                        placeholder="Image URL here"
-                        type="text"
-                        value={newImageUrl}
-                    />
-                </div>
-                <div id="editImageCreditsElements">
-                    <label htmlFor="editImageCredits">Image Credits:</label>
-                    <input
-                        id="editImageCredits"
-                        onChange={(e) => setNewImageCredits(e.target.value)}
-                        placeholder="Image copyright owner..."
-                        type="text"
-                        value={newImageCredits}
                     />
                 </div>
                 <div id="editWorkButtons">
