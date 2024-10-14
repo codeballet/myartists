@@ -159,21 +159,23 @@ export function AddWorkPage() {
                     <input
                         id="addCredits"
                         onChange={(e) => setAddCredits(e.target.value)}
-                        placeholder="Image opyright owner..."
+                        placeholder="Image copyright owner..."
                         required
                         type="text"
                         value={addCredits}
                     />
                 </div>
-                <button id="editWorkButton" type="submit">
-                    Save
-                </button>
-                <button
-                    id="cancelAddWorkButton"
-                    onClick={() => navigate("/edit")}
-                >
-                    Cancel
-                </button>
+                <div id="addWorkButtons">
+                    <button id="editWorkButton" type="submit">
+                        Save
+                    </button>
+                    <button
+                        id="cancelAddWorkButton"
+                        onClick={() => navigate("/edit")}
+                    >
+                        Cancel
+                    </button>
+                </div>
             </form>
         </section>
     );

@@ -47,18 +47,18 @@ export function EditPage(): ReactElement {
     return (
         <section className="edit-page">
             {!loggedIn ? (
-                <div className="loggedOut">
+                <div className="logged-out">
                     <h2>Please login to edit your works</h2>
                 </div>
             ) : (
-                <div className="loggedIn">
+                <div className="logged-in">
                     <article id="editWorks">
                         {location.pathname !== "/edit/add" && (
                             <Link to="add">
                                 <button id="addWorkButton">Add new work</button>
                             </Link>
                         )}
-                        <h2>Listed works:</h2>
+                        <h2 id="listTitle">Listed works:</h2>
                         <ul>
                             {works
                                 .sort((a, b) => a.title.localeCompare(b.title))
@@ -70,15 +70,17 @@ export function EditPage(): ReactElement {
                                                 alt="Art Work"
                                             />
                                         </figure>
-                                        {work.title}
-                                        <Link to={work.id}>
-                                            <button>Edit</button>
-                                        </Link>
-                                        <button
-                                            onClick={() => deleteWork(work)}
-                                        >
-                                            Delete
-                                        </button>
+                                        <p className="title-li">{work.title}</p>
+                                        <div className="list-buttons">
+                                            <Link to={work.id}>
+                                                <button>Edit</button>
+                                            </Link>
+                                            <button
+                                                onClick={() => deleteWork(work)}
+                                            >
+                                                Delete
+                                            </button>
+                                        </div>
                                     </li>
                                 ))}
                         </ul>

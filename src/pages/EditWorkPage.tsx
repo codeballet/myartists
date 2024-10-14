@@ -14,6 +14,8 @@ export function EditWorkPage(): ReactElement {
     const { works, setWorks } = useContext(UserContext);
 
     // Define states
+    const [newImageCredits, setNewImageCredits] = useState<string>("");
+    const [newImageUrl, setNewImageUrl] = useState<string>("");
     const [work, setWork] = useState<IWork>(
         works.filter((work) => work.id === workId)[0]
     );
@@ -22,6 +24,9 @@ export function EditWorkPage(): ReactElement {
 
     const saveEdit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        // Edit image
+        // Edit image credits
 
         // Create new work with edited values
         const editedWork: IWork = {
@@ -71,15 +76,37 @@ export function EditWorkPage(): ReactElement {
                         value={newDescription}
                     />
                 </div>
-                <button id="editWorkButton" type="submit">
-                    Save
-                </button>
-                <button
-                    id="cancelEditWorkButton"
-                    onClick={() => navigate("/edit")}
-                >
-                    Cancel
-                </button>
+                <div id="editImageUrlElements">
+                    <label htmlFor="editImageUrl">Image URL:</label>
+                    <input
+                        id="editImageUrl"
+                        onChange={(e) => setNewImageUrl(e.target.value)}
+                        placeholder="Image URL here"
+                        type="text"
+                        value={newImageUrl}
+                    />
+                </div>
+                <div id="editImageCreditsElements">
+                    <label htmlFor="editImageCredits">Image Credits:</label>
+                    <input
+                        id="editImageCredits"
+                        onChange={(e) => setNewImageCredits(e.target.value)}
+                        placeholder="Image copyright owner..."
+                        type="text"
+                        value={newImageCredits}
+                    />
+                </div>
+                <div id="editWorkButtons">
+                    <button id="editWorkButton" type="submit">
+                        Save
+                    </button>
+                    <button
+                        id="cancelEditWorkButton"
+                        onClick={() => navigate("/edit")}
+                    >
+                        Cancel
+                    </button>
+                </div>
             </form>
         </section>
     );
