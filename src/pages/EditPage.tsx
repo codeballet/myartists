@@ -36,6 +36,13 @@ export function EditPage(): ReactElement {
         setWorks(works.filter((work) => work.id !== deleteWork.id));
     };
 
+    const randomWorkImage = (work: IWork): string => {
+        const workImages: string[] = images
+            .filter((image) => work.images.includes(image.url))
+            .map((image) => image.url);
+        return workImages[Math.floor(Math.random() * workImages.length)];
+    };
+
     return (
         <section className="edit-page">
             {!loggedIn ? (
@@ -55,7 +62,13 @@ export function EditPage(): ReactElement {
                             {works
                                 .sort((a, b) => a.title.localeCompare(b.title))
                                 .map((work) => (
-                                    <li key={work.id}>
+                                    <li className="edit-work-li" key={work.id}>
+                                        <figure>
+                                            <img
+                                                src={randomWorkImage(work)}
+                                                alt="Art Work"
+                                            />
+                                        </figure>
                                         {work.title}
                                         <Link to={work.id}>
                                             <button>Edit</button>
