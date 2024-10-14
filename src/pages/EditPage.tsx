@@ -36,6 +36,7 @@ export function EditPage(): ReactElement {
         setWorks(works.filter((work) => work.id !== deleteWork.id));
     };
 
+    // Acquire random image for work from images db table
     const randomWorkImage = (work: IWork): string => {
         const workImages: string[] = images
             .filter((image) => work.images.includes(image.url))
