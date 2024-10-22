@@ -22,6 +22,7 @@ export function EditWorkPage(): ReactElement {
 
     const saveEdit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        console.log(e.currentTarget.child);
 
         // Create new work with edited values
         const editedWork: IWork = {
