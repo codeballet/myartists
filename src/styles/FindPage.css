@@ -4,6 +4,10 @@
 .mine-page {
     margin: 2rem;
 
+    .forms-container {
+        margin-bottom: 2rem;
+    }
+
     .cards-container {
         display: grid;
         grid-gap: 2rem;

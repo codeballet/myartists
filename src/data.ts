@@ -30,21 +30,9 @@ export const artists: IArtist[] = [
         images: [],
     },
     {
-        family_name: "dembacke",
-        first_name: "evelina",
-        id: "004",
-        images: [],
-    },
-    {
-        family_name: "wahlstedt",
-        first_name: "camilla",
-        id: "005",
-        images: [],
-    },
-    {
         family_name: "fredriksson",
         first_name: "stefan",
-        id: "006",
+        id: "004",
         images: [],
     },
 ];
@@ -295,22 +283,12 @@ export const worksArtists: IWorkArtist[] = [
     },
     {
         id: "0009",
-        work_id: "003_000",
-        artist_id: "004",
-    },
-    {
-        id: "0010",
-        work_id: "003_000",
-        artist_id: "005",
-    },
-    {
-        id: "0011",
         work_id: "003_001",
         artist_id: "003",
     },
     {
-        id: "0012",
+        id: "0010",
         work_id: "003_001",
-        artist_id: "006",
+        artist_id: "004",
     },
 ];
