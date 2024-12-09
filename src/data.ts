@@ -23,6 +23,30 @@ export const artists: IArtist[] = [
         id: "002",
         images: [],
     },
+    {
+        family_name: "nilsson",
+        first_name: "stina",
+        id: "003",
+        images: [],
+    },
+    {
+        family_name: "dembacke",
+        first_name: "evelina",
+        id: "004",
+        images: [],
+    },
+    {
+        family_name: "wahlstedt",
+        first_name: "camilla",
+        id: "005",
+        images: [],
+    },
+    {
+        family_name: "fredriksson",
+        first_name: "stefan",
+        id: "006",
+        images: [],
+    },
 ];
 
 // name structure for artist images: artist_image, nnn_nn
@@ -42,6 +66,11 @@ export const images: IImage[] = [
         credits: "Emil Forsander",
         id: "002_00",
         url: "https://www.dropbox.com/scl/fi/0ec0n5vqjc6hodtjyx3ut/christine_00.jpg?rlkey=wgdk76szkea6wp6s5ffekkwzu&st=00wlrmoj&raw=1",
+    },
+    {
+        credits: "Stina Nilsson",
+        id: "003_00",
+        url: "https://www.dropbox.com/scl/fi/x60jaql5vixqn3r5ouvxx/stina_00.jpg?rlkey=xpxwkptkyxk52nzcf4yrdeo5a&st=n7h2k21d&raw=1",
     },
     {
         credits: "David Möller",
@@ -102,6 +131,16 @@ export const images: IImage[] = [
         credits: "AdeY",
         id: "002_001_01",
         url: "https://www.dropbox.com/scl/fi/64nbovb9f42hkmlrpwhvz/roomx_01.jpg?rlkey=fay123k0zkyskg9csscvjofm0&st=qcj5gnjt&raw=1",
+    },
+    {
+        credits: "Stina Nilsson",
+        id: "003_000_00",
+        url: "https://www.dropbox.com/scl/fi/wcwgbikt7ahnueklfn42i/frihet_00.jpg?rlkey=otk85ntphnihzn4b9hm7gqshg&st=zj3u6fcb&raw=1",
+    },
+    {
+        credits: "Stina Nilsson",
+        id: "003_001_00",
+        url: "https://www.dropbox.com/scl/fi/3pgija60ynhyu1zc5e396/mellanrum_00.jpg?rlkey=c9k9id47dumzu4uvrq1cx4w9j&st=j6bylyqq&raw=1",
     },
 ];
 
@@ -189,6 +228,28 @@ export const works: IWork[] = [
         times: [],
         title: "RoomX Palladium",
     },
+    {
+        dates: [],
+        description: "Om död, hopp och dammsugning.",
+        id: "003_000",
+        images: [
+            "https://www.dropbox.com/scl/fi/wcwgbikt7ahnueklfn42i/frihet_00.jpg?rlkey=otk85ntphnihzn4b9hm7gqshg&st=zj3u6fcb&raw=1",
+        ],
+        places: [],
+        times: [],
+        title: "Kolossal Frihet",
+    },
+    {
+        dates: [],
+        description: "Konstnärlig gestaltning i vårdmiljö.",
+        id: "003_001",
+        images: [
+            "https://www.dropbox.com/scl/fi/3pgija60ynhyu1zc5e396/mellanrum_00.jpg?rlkey=c9k9id47dumzu4uvrq1cx4w9j&st=j6bylyqq&raw=1",
+        ],
+        places: [],
+        times: [],
+        title: "Stilla mellanrum",
+    },
 ];
 
 export const worksArtists: IWorkArtist[] = [
@@ -226,5 +287,30 @@ export const worksArtists: IWorkArtist[] = [
         id: "0007",
         work_id: "002_001",
         artist_id: "002",
+    },
+    {
+        id: "0008",
+        work_id: "003_000",
+        artist_id: "003",
+    },
+    {
+        id: "0009",
+        work_id: "003_000",
+        artist_id: "004",
+    },
+    {
+        id: "0010",
+        work_id: "003_000",
+        artist_id: "005",
+    },
+    {
+        id: "0011",
+        work_id: "003_001",
+        artist_id: "003",
+    },
+    {
+        id: "0012",
+        work_id: "003_001",
+        artist_id: "006",
     },
 ];
